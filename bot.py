@@ -18,6 +18,12 @@ async def on_ready():
     print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
     return await bot.change_presence(activity=discord.Activity(type=1, name="[True Edge]", url="https://twitch.tv/dmnight6"))
 
+@bot.event
+async def on_member_join(member):
+    r = get(member.guild.roles, name='Vistor')
+    await member.send("Welcome @{}, Please Do {}verify To Start Verify!".format(member, pref))
+    await member.add_roles(r)
+
 for cog in os.listdir('.\\commands'):
     if cog.endswith(".py"):
         try:
@@ -26,17 +32,5 @@ for cog in os.listdir('.\\commands'):
         except Exception as e:
             print(f"{cog} Can't Load")
             raise e
-
-@bot.command(hidden="true", aliases=["r"])
-async def mreload(ctx):
-    if str(ctx.message.author.id) == owner_id:
-        await bot.unload_extension(cog)
-        await bot.load_extension(cog)
-    else:
-        await ctx.send(":negative_squared_cross_mark: You Have No Permission To Do This!")
-        await ctx.send(ctx.message.author.id)
-        await ctx.send(owner_id)
-        
-
 
 bot.run(token)
