@@ -11,7 +11,6 @@ class VerifyCog(commands.Cog):
     @commands.command()
     async def verify(self, ctx):
         await ctx.send("To Verify, a code will be sent to you.\nOnce U Receive The Code, do 'n/verifykey <code>.'")
-        await ctx.channels.purge(limit=1)
         user = ctx.message.author            
         logs = get(ctx.guild.channels, name='logs')
         await logs.send("'{}' Is Verifying.".format(user))
@@ -31,12 +30,10 @@ class VerifyCog(commands.Cog):
         global randkey
         if userkey == randkey:
             randkey=''
-            await ctx.channels.purge(limit=1)
             await user.add_roles(r)
             await logs.send("'{}' Has Completed Verify".format(user))
             await user.send(":white_check_mark: You Have Successfully Verified!")
         else:
-            await ctx.channels.purge(limit=1)
             await ctx.send("Wrong Code Entered, Please Try Again.")
     
             
