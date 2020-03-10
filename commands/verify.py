@@ -27,10 +27,12 @@ class VerifyCog(commands.Cog):
         user = ctx.message.author
         logs = get(ctx.guild.channels, name='logs')
         r = get(ctx.guild.roles, name='[Verified]')
+        r2 = get(ctx.guild.roles, name='[Not Verified]')
         global randkey
         if userkey == randkey:
             randkey=''
             await user.add_roles(r)
+            await user.remove_roles(r2)
             await logs.send("'{}' Has Completed Verify".format(user))
             await user.send(":white_check_mark: You Have Successfully Verified!")
         else:
