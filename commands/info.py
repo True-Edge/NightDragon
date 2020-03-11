@@ -11,7 +11,15 @@ class Info(commands.Cog):
     @commands.command()
     async def info(self, ctx):
         urli = open('.\System\Invite-Link', 'r').read()
-        await ctx.send("{}".format(urli))
+        embed1 = discord.Embed(
+            title='About Me',
+            colour='blue',
+            add_field=("Created At: 14th March 2019\n[Discord Server](https://discord.gg/tehurtf)\n[Invite Me!]({})".format(urli))
+        )
+
+        await ctx.send(embed1)        
+        
+        
 
 def setup(bot):
     bot.add_cog(Info(bot))
