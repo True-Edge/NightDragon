@@ -7,7 +7,7 @@ class VerCog(commands.Cog):
 
     @commands.command()
     async def version(self, ctx):
-        await ctx.send("Version 1.1.0 [Unstable]")
+        await ctx.send("Version 1.2.0 [Near Stable]")
         
 def setup(bot):
     bot.add_cog(VerCog(bot))

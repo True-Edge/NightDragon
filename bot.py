@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 from discord.utils import get
+from discord import FFmpegPCMAudio
+import youtube_dl
 
 import asyncio
 import datetime
@@ -8,6 +10,7 @@ import sys
 
 import os
 import logging
+from os import system
 
 pref = open(".\system\prefix.u.g", "r").read()
 owner_id = "413632156061925380"
@@ -17,7 +20,7 @@ token = open(".\system\Token.u.g", 'r').read()
 @bot.event
 async def on_ready():
     print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
-    return await bot.change_presence(activity=discord.Activity(type=1, name="[True Edge]", url="https://twitch.tv/dmnight6"))
+    await bot.change_presence(activity=discord.Activity(type=3, name="[True Edge]"))
 
 for cog in os.listdir('.\\commands'):
     if cog.endswith(".py"):
@@ -28,5 +31,14 @@ for cog in os.listdir('.\\commands'):
             print("An Error Has Occured, Logs Has Been Generated")
             logging.basicConfig(filename=".\\Logs\log.txt", filemode='w+', format='%(levelname)s > %(message)s')
             logging.error("An Error Occured.", exc_info=True)
+
+for cogm2 in os.listdir('.\\commands-m1'):
+    if cogm2.endswith('.py'):
+        try:
+            with open(f'.\\commands-m1\{cogm2}') as rk:
+                exec(rk.read())
+        except Exception as err2:
+            logging.basicConfig(filename=".\\Logs\log-m2.txt", filemode='w+', format='%(levelname)s > %(message)s')
+            logging.error("An Error Occured", exc_info=True)
 
 bot.run(token)

@@ -16,7 +16,7 @@ class VerifyCog(commands.Cog):
         await logs.send("'{}' Is Verifying.".format(user))
         if get(user.roles, name='[Verified]'):
             await ctx.send("'{}', You already have the role!".format(user))
-            await logs.send("'{}' Attempted To Verify, User Failed To Verify As User Has The Role Already.")
+            await logs.send("'{}' Attempted To Verify, User Failed To Verify As User Has The Role Already.".format(user))
         else:
             global randkey
             randkey = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))

@@ -1,0 +1,28 @@
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\bot.py", line 596, in _load_from_module_spec
+    spec.loader.exec_module(lib)
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\User\Desktop\Bot Maker Items\Bot\Bot-Python\commands\music.py", line 1, in <module>
+    youtube_dl.utils.bug_reports_message = lambda: ''
+NameError: name 'youtube_dl' is not defined
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "bot.py", line 29, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\bot.py", line 653, in load_extension
+    self._load_from_module_spec(spec, name)
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\bot.py", line 599, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.music' raised an error: NameError: name 'youtube_dl' is not defined
+ERROR > An Error Occured
+Traceback (most recent call last):
+  File "bot.py", line 39, in <module>
+    exec(rk.read())
+  File "<string>", line 2
+    async def help(ctx)
+                      ^
+SyntaxError: invalid syntax

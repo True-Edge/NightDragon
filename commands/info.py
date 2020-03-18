@@ -13,11 +13,11 @@ class Info(commands.Cog):
         urli = open('.\System\Invite-Link', 'r').read()
         embed1 = discord.Embed(
             title='About Me',
-            colour='blue',
-            add_field=("Created At: 14th March 2019\n[Discord Server](https://discord.gg/tehurtf)\n[Invite Me!]({})".format(urli))
+            colour=discord.Color.from_rgb(0, 0, 255),
+            description="Created At: 14th March 2019\n[Discord Server](https://discord.gg/tehurtf)\n[Invite Me!]({})".format(urli)
         )
 
-        await ctx.send(embed1)        
+        await ctx.send(embed=embed1)        
         
         
 
