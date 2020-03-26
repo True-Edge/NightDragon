@@ -2,8 +2,10 @@ import discord
 from discord.ext import commands
 
 import os
+import asyncio
+import sys
 owner_id = "413632156061925380"
-pref = open(".\system\prefix.u.g", "r").read()
+pref = open("System/prefix.u.g", "r").read()
 bot = commands.Bot(command_prefix = pref, case_insensitive=True)
 
 class ModuleCog(commands.Cog):
@@ -11,26 +13,14 @@ class ModuleCog(commands.Cog):
         self.bot = bot
 
     @commands.command(hidden=True)
-    async def reboot(self, ctx):
+    async def update(self, ctx):
         if str(ctx.message.author.id) != owner_id:
             await ctx.send("You Have No Permission To Do This")
         else:
             try:
-                await bot.close()
+                os.system("./stop.sh")
             except:
                 pass
-            finally:
-                os.system("py bot.py")
-    
-    @commands.command(hidden=True)
-    async def shutdown(self, ctx):
-        if str(ctx.message.author.id) != owner_id:
-            await ctx.send("Begone Mortals, You Are Not Allowed To Use This Command.")
-        else:
-            try:
-                await bot.close()
-            except:
-                pass
-            
+         
 def setup(bot):
     bot.add_cog(ModuleCog(bot))

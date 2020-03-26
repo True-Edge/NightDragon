@@ -10,10 +10,10 @@ class Info(commands.Cog):
 
     @commands.command()
     async def info(self, ctx):
-        urli = open('.\System\Invite-Link', 'r').read()
+        urli = open('System/Invite-Link', 'r').read()
         embed1 = discord.Embed(
             title='About Me',
-            colour=discord.Color.from_rgb(0, 0, 255),
+            colour=discord.Color.from_rgb(215, 255, 0),
             description="Created At: 14th March 2019\n[Discord Server](https://discord.gg/tehurtf)\n[Invite Me!]({})".format(urli)
         )
 
