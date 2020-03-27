@@ -1,76 +1,28 @@
 ERROR > An Error Occured.
 Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.music ' could not be loaded.
-ERROR > An Error Occured.
+  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 596, in _load_from_module_spec
+    spec.loader.exec_module(lib)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/pi/Bots/NightDragon/commands/greeting.py", line 5, in <module>
+    pref = open(".\system\prefix.u.g", "r").read()
+FileNotFoundError: [Errno 2] No such file or directory: '.\\system\\prefix.u.g'
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "bot.py", line 28, in <module>
     bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.info ' could not be loaded.
-ERROR > An Error Occured.
-Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.dms ' could not be loaded.
-ERROR > An Error Occured.
-Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.version ' could not be loaded.
-ERROR > An Error Occured.
-Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.mod ' could not be loaded.
-ERROR > An Error Occured.
-Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.verify ' could not be loaded.
-ERROR > An Error Occured.
-Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.ping ' could not be loaded.
-ERROR > An Error Occured.
-Traceback (most recent call last):
-  File "bot.py", line 28, in <module>
-    bot.load_extension(cog)
-  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 651, in load_extension
-    raise errors.ExtensionNotFound(name)
-discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.system ' could not be loaded.
+  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 653, in load_extension
+    self._load_from_module_spec(spec, name)
+  File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 599, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.greeting' raised an error: FileNotFoundError: [Errno 2] No such file or directory: '.\\system\\prefix.u.g'
 ERROR > An Error Occured
 Traceback (most recent call last):
-  File "bot.py", line 37, in <module>
-    with open(f'"commands-m1/{cogm2}') as rk:
-FileNotFoundError: [Errno 2] No such file or directory: '"commands-m1/help.py'
-ERROR > An Error Occured
-Traceback (most recent call last):
-  File "bot.py", line 37, in <module>
-    with open(f'"commands-m1/{cogm2}') as rk:
-FileNotFoundError: [Errno 2] No such file or directory: '"commands-m1/member.py'
-ERROR > An Error Occured
-Traceback (most recent call last):
-  File "bot.py", line 37, in <module>
-    with open(f'"commands-m1/{cogm2}') as rk:
-FileNotFoundError: [Errno 2] No such file or directory: '"commands-m1/idpurge.py'
-ERROR > An Error Occured
-Traceback (most recent call last):
-  File "bot.py", line 37, in <module>
-    with open(f'"commands-m1/{cogm2}') as rk:
-FileNotFoundError: [Errno 2] No such file or directory: '"commands-m1/stat.py'
+  File "bot.py", line 38, in <module>
+    exec(rk.read())
+  File "<string>", line 2
+    async def help(ctx)
+                      ^
+SyntaxError: invalid syntax

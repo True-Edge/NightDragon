@@ -7,7 +7,7 @@ fi
 while :
 do
 clear
-git fetch; git pull
+git fetch; git pull codeberg master
 bash -c "exec -a pybot python3 bot.py"
 bash stop.sh
 done
