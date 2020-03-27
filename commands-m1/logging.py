@@ -1,6 +1,6 @@
-@client.event
+@bot.event
 async def on_member_update(before, after):
-    logs = client.get_channel("686880410139099148")
+    logs = bot.get_channel("686880410139099148")
     if  before.display_name != after.display_name:
           await logs.send(f"Nickname of {before.name} changed from {before.display_name} to {after.display_name}")
 
