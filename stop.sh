@@ -1,2 +1,2 @@
 #!/bin/bash
- pkill -f pybot; pkill -f jsbot
+ pkill -f pybot
