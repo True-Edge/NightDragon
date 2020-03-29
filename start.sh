@@ -8,6 +8,6 @@ while :
 do
 clear
 git fetch; git pull
-bash -c "exec -a pybot python3 bot.py"
-bash stop.sh
+bash -c "exec -a pybot python3 bot.py" $ bash -c "exec -a jsbot node main.js"
+bash stop.shz
 done
