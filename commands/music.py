@@ -145,7 +145,7 @@ class Song:
                  .add_field(name='Requested by', value=self.requester.mention)
                  .add_field(name='Uploader', value='[{0.source.uploader}]({0.source.uploader_url})'.format(self))
                  .add_field(name='URL', value='[Click]({0.source.url})'.format(self))
-                 .set_footer(text=f"Requester: {self.requester.author}" icon_url=self.requester.avatar_url)
+                 .set_footer(text="Requester: {}".format(self.requester.author) icon_url=self.requester.avatar_url)
                  .set_thumbnail(url=self.source.thumbnail))
 
         return embed
