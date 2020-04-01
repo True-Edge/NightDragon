@@ -1,2 +1,2 @@
 #!/bin/bash
- pkill -f bot.py
+ pkill -f pybot
