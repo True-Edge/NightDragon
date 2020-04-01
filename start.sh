@@ -6,8 +6,7 @@ then
 fi
 while :
 do
-clear
-git fetch; git pull
 bash -c "exec -a pybot python3 bot.py"
 bash stop.sh
+git fetch; git pull
 done

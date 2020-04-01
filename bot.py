@@ -17,7 +17,7 @@ from os import system
 pref = open("System/prefix.u.g", "r").read()
 owner_id = "413632156061925380"
 guild_id = "413632902480396298"
-bot = commands.Bot(command_prefix = pref, case_insensitive=True)
+bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 load_dotenv()
 token = os.getenv("TOKEN")
 
