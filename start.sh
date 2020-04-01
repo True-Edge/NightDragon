@@ -8,5 +8,5 @@ while :
 do
 bash -c "exec -a pybot python3 bot.py"
 bash stop.sh
-git fetch; git pull
+git fetch codeberg; git pull codeberg
 done
