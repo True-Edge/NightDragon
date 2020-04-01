@@ -331,7 +331,6 @@ class Music(commands.Cog):
             await ctx.send("No Song Is Playing!")
         else:
             ctx.voice_state.voice.pause()
-            await ctx.message.add_reaction('⏯')
 
     @commands.command(name='resume')
     async def _resume(self, ctx: commands.Context):
@@ -341,7 +340,6 @@ class Music(commands.Cog):
             await ctx.send("No Song Is Playing Or Paused.")
         else:
             ctx.voice_state.voice.resume()
-            await ctx.message.add_reaction('⏯')
 
     @commands.command(name='stop')
     async def _stop(self, ctx: commands.Context):
@@ -353,7 +351,6 @@ class Music(commands.Cog):
             await ctx.send("No Song Is Playing!")
         else:
             ctx.voice_state.voice.stop()
-            await ctx.message.add_reaction('⏹')
 
     @commands.command(name='skip')
     async def _skip(self, ctx: commands.Context):
@@ -366,7 +363,6 @@ class Music(commands.Cog):
 
         voter = ctx.message.author
         if voter == ctx.voice_state.current.requester:
-            await ctx.message.add_reaction('⏭')
             ctx.voice_state.skip()
         
         elif voter.id not in ctx.voice_state.skip_votes:
@@ -375,7 +371,6 @@ class Music(commands.Cog):
 
             if total_votes >= 3:
                 ctx.voice_state.skip()
-                await ctx.message.add_reaction('⏭')
             else:
                 await ctx.send('Skip vote added, currently at **{}/3**'.format(total_votes))
 
@@ -413,7 +408,6 @@ class Music(commands.Cog):
             return await ctx.send('Empty queue.')
 
         ctx.voice_state.songs.shuffle()
-        await ctx.message.add_reaction('✅')
 
     @commands.command(name='remove')
     async def _remove(self, ctx: commands.Context, index: int):
@@ -423,7 +417,6 @@ class Music(commands.Cog):
             return await ctx.send('Empty queue.')
 
         ctx.voice_state.songs.remove(index - 1)
-        await ctx.message.add_reaction('✅')
 
     @commands.command(name="loop")
     async def _loop(self, ctx: commands.Context):
@@ -436,7 +429,6 @@ class Music(commands.Cog):
 
         # Inverse boolean value to loop and unloop.
         ctx.voice_state.loop = not ctx.voice_state.loop
-        await ctx.message.add_reaction('✅')
 
     @commands.command(name="play")
     async def _play(self, ctx: commands.Context, *, search: str):

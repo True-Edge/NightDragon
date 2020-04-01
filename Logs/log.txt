@@ -2,11 +2,14 @@ ERROR > An Error Occured.
 Traceback (most recent call last):
   File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 596, in _load_from_module_spec
     spec.loader.exec_module(lib)
-  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
-  File "/home/pi/Bots/NightDragon/commands/greeting.py", line 5, in <module>
-    pref = open(".\system\prefix.u.g", "r").read()
-FileNotFoundError: [Errno 2] No such file or directory: '.\\system\\prefix.u.g'
+  File "/home/pi/Bots/NightDragon/commands/music.py", line 369
+    await ctx.message.add_reaction('?'')
+                                       ^
+SyntaxError: EOL while scanning string literal
 
 The above exception was the direct cause of the following exception:
 
@@ -17,7 +20,7 @@ Traceback (most recent call last):
     self._load_from_module_spec(spec, name)
   File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 599, in _load_from_module_spec
     raise errors.ExtensionFailed(key, e) from e
-discord.ext.commands.errors.ExtensionFailed: Extension 'commands.greeting' raised an error: FileNotFoundError: [Errno 2] No such file or directory: '.\\system\\prefix.u.g'
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.music' raised an error: SyntaxError: EOL while scanning string literal (music.py, line 369)
 ERROR > An Error Occured
 Traceback (most recent call last):
   File "bot.py", line 38, in <module>
