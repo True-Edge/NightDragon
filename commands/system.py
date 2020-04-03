@@ -19,6 +19,7 @@ class ModuleCog(commands.Cog):
         else:
             try:
                 os.system("./stop.sh")
+                sys.exit()
             except:
                 pass
          
