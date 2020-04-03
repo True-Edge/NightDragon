@@ -1,5 +1,5 @@
 @bot.command()
-async def ui(ctx, member: discord.Member):
+async def ui(ctx, member: discord.Member, *):
     embed = discord.Embed(title="{} Info", colour=discord.Color.from_rgb(255, 215,0))
 
 
