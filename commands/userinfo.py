@@ -14,7 +14,7 @@ class UserInfo(commands.Cog):
         embed.add_field(name="Joined At - ", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%N -> %p UTC"))
         embed.add_field(name="Created At - ", value=member.created_at.strftime("%a, %#d %B %Y, %I:%N -> %p UTC"))
         embed.add_field(name="Bot?", value=member.bot)
-        embed.set_thumbnail(member.avatar_url)
+        embed.set_thumbnail(url=member.avatar_url)
         embed.set_footer(text=f"Requested By > {ctx.author.name}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
