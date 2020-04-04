@@ -9,8 +9,8 @@ class UserInfo(commands.Cog):
     async def stat(self, ctx, member: discord.Member):
         embed = discord.Embed(title=f"{member} Info", colour=discord.Color.from_rgb(255, 215, 0))
 
-        embed.add_field(name=f"Name - {member}")
-        embed.add_field(name=f"In Guild Name - {member.name}")
+        embed.add_field(name="Name - ", value=member)
+        embed.add_field(name="In Guild Name - ", value=member.name)
         embed.add_field(name="Joined At - ", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%N -> %p UTC"))
         embed.add_field(name="Created At - ", value=member.created_at.strftime("%a, %#d %B %Y, %I:%N -> %p UTC"))
         embed.add_field(name="Bot?", value=member.bot)
