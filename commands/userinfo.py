@@ -18,3 +18,6 @@ class UserInfo(commands.Cog):
         embed.set_footer(text=f"Requested By > {ctx.author.name}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
+
+def setup(bot):
+    bot.add_cog(UserInfo(bot))
