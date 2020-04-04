@@ -11,8 +11,8 @@ class UserInfo(commands.Cog):
 
         embed.add_field(name="Name - ", value=member)
         embed.add_field(name="In Guild Name - ", value=member.name)
-        embed.add_field(name="Joined At - ", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%N -> %p UTC"))
-        embed.add_field(name="Created At - ", value=member.created_at.strftime("%a, %#d %B %Y, %I:%N -> %p UTC"))
+        embed.add_field(name="Joined At - ", value=member.joined_at.strftime("%#d %B %Y"))
+        embed.add_field(name="Created At - ", value=member.created_at.strftime("%#d %B %Y, %I:%N"))
         embed.add_field(name="Bot?", value=member.bot)
         embed.set_thumbnail(url=member.avatar_url)
         embed.set_footer(text=f"Requested By > {ctx.author.name}", icon_url=ctx.author.avatar_url)
