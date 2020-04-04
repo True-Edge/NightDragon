@@ -1,5 +1,5 @@
 @bot.command()
-async def stat(ctx, member: discord.Member)
+async def stat(ctx, member: discord.Member):
     embed = discord.Embed(title=f"{member} Info", colour=discord.Color.from_rgb(255, 215, 0))
 
     embed.add_field(name=f"Name - {member}")
