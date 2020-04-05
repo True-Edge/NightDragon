@@ -25,20 +25,20 @@ class Mod(commands.Cog):
     async def ban(self, ctx, member: discord.Member, *, reason="None"):
         await member.ban(reason=reason)
         logs = await bot.get_channel("686880410139099148")
-        embed1 = discord.Embed(title="Member Banned", colour=discord.Color.from_rgb(255, 215, 0))
-        embed1.add_field(name=f"{member} Was Banned By - ", value=ctx.author.mention)
-        embed1.add_field(name="Reason - ", value=reason)    
-        embed1.set_footer(text=f"Banned By Mod/Owner - {ctx.message.author}", icon_url=ctx.author.avatar_url)
-        await member.send(embed1=embed1)
-        await logs.send(embed1=embed1)
+        embed = discord.Embed(title="Member Banned", colour=discord.Color.from_rgb(255, 215, 0))
+        embed.add_field(name=f"{member} Was Banned By - ", value=ctx.author.mention)
+        embed.add_field(name="Reason - ", value=reason)    
+        embed.set_footer(text=f"Banned By Mod/Owner - {ctx.message.author}", icon_url=ctx.author.avatar_url)
+        await member.send(embed=embed)
+        await logs.send(embed=embed)
 
     @commands.command(aliases=["purge"])
     @commands.has_role("Staff")
     async def clear(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount + 1)
-        embed2 = discord.Embed(title="Message Purged", colour=discord.Color.from_rgb(255, 215, 0))
-        embed2.add_field(name="Ammount Of Message Purged - ", value=amount)
-        await ctx.send(embed2=embed2)
+        embed = discord.Embed(title="Message Purged", colour=discord.Color.from_rgb(255, 215, 0))
+        embed.add_field(name="Ammount Of Message Purged - ", value=amount)
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Mod(bot))
