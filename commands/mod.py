@@ -36,7 +36,7 @@ class Mod(commands.Cog):
     @commands.has_role("Staff")
     async def clear(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount + 1)
-        embed3 = discord.Emebd(title="Message Purged", colour=discord.Color.from_rgb(255, 215, 0))
+        embed3 = discord.Embed(title="Message Purged", colour=discord.Color.from_rgb(255, 215, 0))
         embed3.add_field(name="Ammount Of Message Purged - ", value=amount)
         await ctx.send(embed3=embed3)
 
