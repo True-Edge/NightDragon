@@ -6,7 +6,7 @@ class Help(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def help(ctx):
+    async def help(self, ctx):
         embed = discord.Embed(title="List Of Command", colour=discord.Color.from_rgb(255, 215, 0))
 
         embed.add_field(name="join", value="Join User's Voice Channel", inline=False)
