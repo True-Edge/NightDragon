@@ -12,7 +12,7 @@ class Mod(commands.Cog):
     @commands.has_role("Staff")
     async def kick(self, ctx, member: discord.Member, *, reason="None"):
         await member.kick(reason=reason)
-        logs = bot.get_channel("686880410139099148")
+        logs = await bot.get_channel("686880410139099148")
         embed = discord.Embed(title="Member Kicked", colour=discord.Color.from_rgb(255, 215, 0))
         embed.add_field(name=f"{member} Was Kicked By -", value=ctx.author.mention)
         embed.add_field(name="Reason - ", value=reason)
@@ -24,7 +24,7 @@ class Mod(commands.Cog):
     @commands.has_role("Staff")
     async def ban(self, ctx, member: discord.Member, *, reason="None"):
         await member.ban(reason=reason)
-        logs = bot.get_channel("686880410139099148")
+        logs = await bot.get_channel("686880410139099148")
         embed1 = discord.Embed(title="Member Banned", colour=discord.Color.from_rgb(255, 215, 0))
         embed1.add_field(name=f"{member} Was Banned By - ", value=ctx.author.mention)
         embed1.add_field(name="Reason - ", value=reason)    
