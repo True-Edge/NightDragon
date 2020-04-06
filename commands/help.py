@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+pref = open("System/prefix.u.g", "r").read()
+
 class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -15,12 +17,12 @@ class Help(commands.Cog):
             embed.add_field(name="Music Command", value=f"{pref} music")
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
 
-        if args == command:
+        if args == 'command':
             embed.add_field(name="info", value="Shows Bot Info", inline=False)
             embed.add_field(name="stat <mention member>", value="Shows A User Info")
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
         
-        if args == music:
+        if args == 'music':
             embed.add_field(name="join", value="Join User's Voice Channel", inline=False)
             embed.add_field(name="leave", value="Clear Music Queues And Leave Voice Channel", inline=False)
             embed.add_field(name="volume <1-100>", value="Change Bot Music Volume", inline=False)
@@ -36,7 +38,7 @@ class Help(commands.Cog):
             embed.add_field(name="play <name/links>", value="Play Song, Will Add Next Requested Music To Queue", inline=False)
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
 
-        if args == mod:
+        if args == 'mod':
             embed.add_field(name="kick <member> <reason>", value="Kick A Member Out The Guild")
             embed.add_field(name="ban <member> <reason>", value="Ban a member")
             embed.add_field(name="clear/purge <amount>", value="Clear Messages With The Amount Provided")
