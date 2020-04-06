@@ -12,15 +12,15 @@ class Help(commands.Cog):
         embed = discord.Embed(title="List Of Command", colour=discord.Color.from_rgb(255, 215, 0))
         
         if args == None:
-            embed.add_field(name="Command", value=f"{pref}help command")
-            embed.add_field(name="Mods Command", value=f"{pref}help mod")
-            embed.add_field(name="Music Command", value=f"{pref}help music")
+            embed.add_field(name="Command", value=f"{pref}help command",)
+            embed.add_field(name="Mods Command", value=f"{pref}help mod",)
+            embed.add_field(name="Music Command", value=f"{pref}help music",)
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
 
         if args == 'command':
             embed.add_field(name="info", value="Shows Bot Info", inline=False)
-            embed.add_field(name="stat <mention member>", value="Shows A User Info")
-            embed.add_field(name="meme", value="Choose Random Meme From Reddit :)")
+            embed.add_field(name="stat <mention member>", value="Shows A User Info", inline=False)
+            embed.add_field(name="meme", value="Choose Random Meme From Reddit :)", inline=False)
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
         
         if args == 'music':
@@ -40,9 +40,9 @@ class Help(commands.Cog):
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
 
         if args == 'mod':
-            embed.add_field(name="kick <member> <reason>", value="Kick A Member Out The Guild")
-            embed.add_field(name="ban <member> <reason>", value="Ban a member")
-            embed.add_field(name="clear/purge <amount>", value="Clear Messages With The Amount Provided")
+            embed.add_field(name="kick <member> <reason>", value="Kick A Member Out The Guild", inline=False)
+            embed.add_field(name="ban <member> <reason>", value="Ban a member", inline=False)
+            embed.add_field(name="clear/purge <amount>", value="Clear Messages With The Amount Provided", inline=False)
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
         
         await ctx.send(embed=embed)
