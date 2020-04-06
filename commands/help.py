@@ -20,6 +20,7 @@ class Help(commands.Cog):
         if args == 'command':
             embed.add_field(name="info", value="Shows Bot Info", inline=False)
             embed.add_field(name="stat <mention member>", value="Shows A User Info")
+            embed.add_field(name="meme", value="Choose Random Meme From Reddit :)")
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
         
         if args == 'music':
