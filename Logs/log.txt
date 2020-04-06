@@ -6,10 +6,10 @@ Traceback (most recent call last):
   File "<frozen importlib._bootstrap_external>", line 860, in get_code
   File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
-  File "/home/pi/Bots/NightDragon/commands/music.py", line 148
-    .set_footer(text="Requester: {}".format(self.requester.author) icon_url=self.requester.avatar_url)
-                                                                          ^
-SyntaxError: invalid syntax
+  File "/home/pi/Bots/NightDragon/commands/mod.py", line 17
+    embed.add_field(name=f"{member} Was Kicked By -", value=ctx.author.mention)
+    ^
+IndentationError: unexpected indent
 
 The above exception was the direct cause of the following exception:
 
@@ -20,12 +20,4 @@ Traceback (most recent call last):
     self._load_from_module_spec(spec, name)
   File "/home/pi/.local/lib/python3.7/site-packages/discord/ext/commands/bot.py", line 599, in _load_from_module_spec
     raise errors.ExtensionFailed(key, e) from e
-discord.ext.commands.errors.ExtensionFailed: Extension 'commands.music' raised an error: SyntaxError: invalid syntax (music.py, line 148)
-ERROR > An Error Occured
-Traceback (most recent call last):
-  File "bot.py", line 38, in <module>
-    exec(rk.read())
-  File "<string>", line 2
-    async def help(ctx)
-                      ^
-SyntaxError: invalid syntax
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.mod' raised an error: IndentationError: unexpected indent (mod.py, line 17)
