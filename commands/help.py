@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+pref = open("System/prefix.u.g", "r").read()
+
 class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
