@@ -1,4 +1,4 @@
-import discord
+import discord, random
 import praw
 from discord.ext import commands
 
