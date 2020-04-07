@@ -11,7 +11,7 @@ class greetCog(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
             r = get(member.guild.roles, name='[Not Verified]')
-            await member.send(f"Welcome To {discord.Guild.name}, {member}")
+            await member.send(f"Welcome To {discord.Guild.name}, {member}. We Hope You Enjoy Your Stay!")
             await member.add_roles(r)
         else:
             pass
