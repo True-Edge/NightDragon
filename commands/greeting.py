@@ -13,8 +13,6 @@ class greetCog(commands.Cog):
             r = get(member.guild.roles, name='[Not Verified]')
             await member.send(f"Welcome To {discord.Guild.name}, {member}. We Hope You Enjoy Your Stay!")
             await member.add_roles(r)
-        else:
-            pass
         
 def setup(bot):
     bot.add_cog(greetCog(bot))
