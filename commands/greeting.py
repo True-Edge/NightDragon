@@ -9,9 +9,9 @@ class greetCog(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_member_join(self, member):
+    async def on_member_join(self, member, guild: discord.Guild):
             r = get(member.guild.roles, name='[Not Verified]')
-            await member.send(f"Welcome To {discord.Guild.name}, {member}. We Hope You Enjoy Your Stay!")
+            await member.send(f"Welcome To **{guild.name}**, {member}. We Hope You Enjoy Your Stay!")
             await member.add_roles(r)
         
 def setup(bot):
