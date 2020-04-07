@@ -9,7 +9,8 @@ class greetCog(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_member_join(self, member, guild: discord.Guild):
+    async def on_member_join(self, member):
+        guild = discord.Guild
         if member.guild.id == "413632902480396298":
             r = get(member.guild.roles, name='[Not Verified]')
             await member.send(f"Welcome To **{guild.name}**, {member}. Please Do ``{pref} verify`` to start verify~")
