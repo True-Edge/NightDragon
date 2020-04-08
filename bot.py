@@ -31,7 +31,7 @@ token = os.getenv("TOKEN")
 
 bot.remove_command('help')
 
-for cog in os.listdir('commands-b'):
+for cog in os.listdir('commands'):
     if cog.endswith(".py"):
         try:
             cog = f"commands.{cog.replace('.py', '')}"
@@ -41,31 +41,11 @@ for cog in os.listdir('commands-b'):
             logging.basicConfig(filename="Logs/log.txt", filemode='w+', format='%(levelname)s > %(message)s')
             logging.error("An Error Occured.", exc_info=True)
 
-for cogm2 in os.listdir('commands-m1-b'):
+for cogm2 in os.listdir('commands-m1'):
     if cogm2.endswith('.py'):
         try:
             with open(f'commands-m1/{cogm2}') as rk:
                 exec(rk.read())
-        except Exception as err2:
-            print("Error Occured, Log generated")
-            logging.basicConfig(filename="Logs/log-m2.txt", filemode='w+', format='%(levelname)s > %(message)s')
-            logging.error("An Error Occured", exc_info=True)
-
-for cog01 in os.listdir('commands-c'):
-    if cog01.endswith(".py"):
-        try:
-            cog01 = f"commands.{cog01.replace('.py', '')}"
-            client.load_extension(cog01)
-        except Exception as err:
-            print("An Error Has Occured, Logs Has Been Generated")
-            logging.basicConfig(filename="Logs/log.txt", filemode='w+', format='%(levelname)s > %(message)s')
-            logging.error("An Error Occured.", exc_info=True)
-
-for cog02 in os.listdir('commands-m1-c'):
-    if cog02.endswith('.py'):
-        try:
-            with open(f'commands-m1/{cog02}') as rc:
-                exec(rc.read())
         except Exception as err2:
             print("Error Occured, Log generated")
             logging.basicConfig(filename="Logs/log-m2.txt", filemode='w+', format='%(levelname)s > %(message)s')
