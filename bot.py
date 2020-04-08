@@ -46,9 +46,5 @@ for cogm2 in os.listdir('commands-m1'):
         try:
             with open(f'commands-m1/{cogm2}') as rk:
                 exec(rk.read())
-        except Exception as err2:
-            print("Error Occured, Log generated")
-            logging.basicConfig(filename="Logs/log-m2.txt", filemode='w+', format='%(levelname)s > %(message)s')
-            logging.error("An Error Occured", exc_info=True)
-
+                
 bot.run(token)
