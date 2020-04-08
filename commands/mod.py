@@ -3,13 +3,8 @@ import os
 from discord.ext import commands
 from discord.utils import get
 
-def serverprefix(bot, message):
-    with open('System/serverprefix.json', 'r') as f:
-        prefixes = json.load(f)
-    
-    return prefixes[str(message.guild.id)]
-
-bot = commands.Bot(command_prefix = serverprefix, case_insensitive=True)
+pref = open("System/prefix.u.g", "r").read()
+bot = commands.Bot(command_prefix = pref, case_insensitive=True)
 class Mod(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

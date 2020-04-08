@@ -16,20 +16,14 @@ import logging
 from os import system
 
 
-def serverprefix(bot, message):
-    with open('System/serverprefix.json', 'r') as f:
-        prefixes = json.load(f)
-    
-    return prefixes[str(message.guild.id)]
-    
 pref = open("System/prefix.u.g", "r").read()
 owner_id = "413632156061925380"
 guild_id = "413632902480396298"
 load_dotenv()
 token = os.getenv("TOKEN")
 
-bot = commands.Bot(command_prefix = serverprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
-client = commands.Bot(command_prefix = serverprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
+bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
+client = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 bot.remove_command('help')
 
 for cog in os.listdir('commands'):
