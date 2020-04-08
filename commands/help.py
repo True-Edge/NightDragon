@@ -1,7 +1,11 @@
 import discord
 from discord.ext import commands
 
-pref = open("System/prefix.u.g", "r").read()
+def serverprefix(bot, message):
+    with open('System/serverprefix.json', 'r') as f:
+        prefixes = json.load(f)
+    
+    return prefixes[str(message.guild.id)]
 
 class Help(commands.Cog):
     def __init__(self, bot):
@@ -12,9 +16,9 @@ class Help(commands.Cog):
         embed = discord.Embed(title="List Of Command", colour=discord.Color.from_rgb(255, 215, 0))
         
         if args == None:
-            embed.add_field(name="Command", value=f"{pref}help command",)
-            embed.add_field(name="Mods Command", value=f"{pref}help mod",)
-            embed.add_field(name="Music Command", value=f"{pref}help music",)
+            embed.add_field(name="Command", value=f"{serverprefix}help command",)
+            embed.add_field(name="Mods Command", value=f"{serverprefix}help mod",)
+            embed.add_field(name="Music Command", value=f"{serverprefix}help music",)
             embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
 
         if args == 'command':
