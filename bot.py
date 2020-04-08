@@ -45,6 +45,6 @@ for cogm2 in os.listdir('commands-m1'):
     if cogm2.endswith('.py'):
         try:
             with open(f'commands-m1/{cogm2}') as rk:
-                exec(rk.read())
+            exec(rk.read())
                 
 bot.run(token)
