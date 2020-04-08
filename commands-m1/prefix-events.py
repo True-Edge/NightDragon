@@ -18,7 +18,7 @@ async def on_guild_remove(guild):
     with open('System/serverprefix.json', 'r') as f:
         json.dump(prefixes, f, indent=4)
 
-@bot.commands()
+@bot.command()
 async def chp(ctx, prefix):
     with open('System/serverprefix.json', 'r') as f:
         prefixes = json.load(f)

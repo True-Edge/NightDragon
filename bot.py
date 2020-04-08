@@ -24,11 +24,11 @@ def serverprefix(bot, message):
 pref = open("System/prefix.u.g", "r").read()
 owner_id = "413632156061925380"
 guild_id = "413632902480396298"
-bot = commands.Bot(command_prefix = serverprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
-client = commands.Bot(command_prefix = serverprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 load_dotenv()
 token = os.getenv("TOKEN")
 
+bot = commands.Bot(command_prefix = serverprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
+client = commands.Bot(command_prefix = serverprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 bot.remove_command('help')
 
 for cog in os.listdir('commands'):
@@ -43,8 +43,7 @@ for cog in os.listdir('commands'):
 
 for cogm2 in os.listdir('commands-m1'):
     if cogm2.endswith('.py'):
-        try:
-            with open(f'commands-m1/{cogm2}') as rk:
-                exec(rk.read())
-                
+        with open(f'commands-m1/{cogm2}') as rk:
+            exec(rk.read())
+    
 bot.run(token)
