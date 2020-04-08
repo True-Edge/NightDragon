@@ -3,8 +3,8 @@ import json
 from discord.ext import commands
 
 class Events(commands.Cog):
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
@@ -38,7 +38,7 @@ class Events(commands.Cog):
 
         await ctx.send(f"Prefix Changed To: {prefix}")
 
-def setup(client):
-    client.add_cog(Events(client))
+def setup(bot):
+    client.add_cog(Events(bot))
 
 
