@@ -15,7 +15,7 @@ class ModuleCog(commands.Cog):
 
     @commands.command(hidden=True)
     async def update(self, ctx):
-        if ctx.message.author.id != owner_id or ctx.message.author.id != owner_id2:
+        if str(ctx.message.author.id) != owner_id or str(ctx.message.author.id) != owner_id2:
             await ctx.send("You Have No Permission To Do This")
         else:
             try:
