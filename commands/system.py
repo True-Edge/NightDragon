@@ -4,8 +4,8 @@ from discord.ext import commands
 import os
 import asyncio
 import sys
-owner_id = 413632156061925380
-owner_id2 = 300126997718237195
+owner_id = "413632156061925380"
+owner_id2 = "300126997718237195"
 pref = open("System/prefix.u.g", "r").read()
 bot = commands.Bot(command_prefix = pref, case_insensitive=True)
 

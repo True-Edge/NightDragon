@@ -1,0 +1,5 @@
+# Bot Keys
+.env
+
+# Bot Cache
+.pyc
