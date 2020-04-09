@@ -3,3 +3,4 @@
 
 # Bot Cache
 .pyc
+__pycache__
