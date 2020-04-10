@@ -1,4 +1,4 @@
-# Main Bot For [True Edge] | Hypixel
+# Main Bot For [True Edge]
 ### Its Now Open Souce! Currently The Developer Of The Bot Is Only 1 Person. Extra Commands Coming Soon!
 
 ________________________________________________________________________________________
