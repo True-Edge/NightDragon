@@ -8,6 +8,6 @@ while :
 do
 git fetch codeberg master; git pull codeberg master
 clear
-bash -c "exec -a pybot python3 bot.py"
+bash -c "exec -a pybot python3 bot.py" & bash -c "exec -a hatabot python3 hata.py"
 bash stop.sh
 done
