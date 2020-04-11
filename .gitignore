@@ -3,3 +3,6 @@
 
 # Bot Cache
 __pycache__/
+
+# Bot Additional Files
+.vs
