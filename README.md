@@ -1,6 +1,5 @@
 # Main Bot For [True Edge]
-### Its Now Open Souce! Currently The Developer Of The Bot Is Only 1 Person. Extra Commands Coming Soon!
-
+### Thanks To @Redafex, @Synth And [PD Community](https://discord.gg/8beKyxf) For Helping Me To Fix Some Of The Errors :)
 ________________________________________________________________________________________
 
 Link To Discord:
