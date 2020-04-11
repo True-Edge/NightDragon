@@ -17,8 +17,8 @@ owner_id2 = 300126997718237195
 @Bot.commands
 async def update(client, message):
     if message.author.id != owner_id and message.author.id != owner_id2:
-        embed1 = Embed(title="ID Not Match", description=f"```{message.author} ID Does Not Match With The System Provided ID!```", color=Color.from_rgb(255, 215, 0))
-        await client.message_create(message.channel, embed1=embed1)
+        embed = Embed(title="ID Not Match", description=f"```Your ID Does Not Match With The System Provided ID!```", color=Color.from_rgb(255, 215, 0))
+        await client.message_create(message.channel, embed=embed)
     else:
         embed = Embed(title="ID Matched", description="```Bot Updating....```", color=Color.from_rgb(255, 215, 0))
         await client.message_create(message.channel, embed=embed)
