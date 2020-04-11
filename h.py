@@ -24,5 +24,5 @@ async def update(client, message):
         embed = Embed(title="ID Matched", description="```Bot Updating....```", color=Color.from_rgb(255, 215, 0))
         await client.message_create(message.channel, embed=embed)
         os.system('./stop.sh')
-
+        
 start_clients()
