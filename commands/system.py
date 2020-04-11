@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 
 import os
+import sys
 import asyncio
 
 owner_id = 413632156061925380
@@ -15,10 +16,11 @@ class ModuleCog(commands.Cog):
 
     @commands.command(hidden=True)
     async def update(self, ctx):
-        if ctx.author.id != owner_id or ctx.author.id != owner_id2:
+        if ctx.author.id != owner_id and ctx.author.id != owner_id2:
             await ctx.send("You Have No Permission To Do This")
         else:
             try:
+                sys.exit()
                 os.system("./stop.sh")
             except:
                 pass
