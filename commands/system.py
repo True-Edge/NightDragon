@@ -20,7 +20,6 @@ class ModuleCog(commands.Cog):
             await ctx.send("You Have No Permission To Do This")
         else:
             try:
-                sys.exit()
                 os.system("./stop.sh")
             except:
                 pass
