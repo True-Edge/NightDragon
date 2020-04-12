@@ -1,22 +1,20 @@
 ERROR > An Error Occured.
 Traceback (most recent call last):
-  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 596, in _load_from_module_spec
-    spec.loader.exec_module(lib)
-  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 916, in get_code
-  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
-  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
-  File "c:\Users\User\Desktop\Bot Maker Items\Bot\Bot-Python\commands\music.py", line 289
-    r = get(ctx.guild.roles == name="DJ")
-            ^
-SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 608, in _load_from_module_spec
+    setup(self)
+  File "c:\Users\User\Desktop\Bot Maker Items\Bot\Bot-Python\commands\version.py", line 13, in setup
+    bot.add_cog(VerCog(bot))
+  File "c:\Users\User\Desktop\Bot Maker Items\Bot\Bot-Python\commands\version.py", line 6, in __init__
+    self.bot = bot
+NameError: name 'bot' is not defined
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "<string>", line 5, in <module>
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 33, in <module>
+    bot.load_extension(cog)
   File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 653, in load_extension
     self._load_from_module_spec(spec, name)
-  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 599, in _load_from_module_spec
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 613, in _load_from_module_spec
     raise errors.ExtensionFailed(key, e) from e
-discord.ext.commands.errors.ExtensionFailed: Extension 'commands.music' raised an error: SyntaxError: expression cannot contain assignment, perhaps you meant "=="? (music.py, line 289)
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.version' raised an error: NameError: name 'bot' is not defined

@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class VerCog(commands.Cog):
-    def __init__(self, client):
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
