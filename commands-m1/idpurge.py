@@ -1,4 +1,4 @@
-@client.command(aliases=["clearid"])
+@bot.command(aliases=["clearid"])
 async def purgeid(ctx, amount: int):
     if str(ctx.message.author.id) == owner_id:
         await ctx.channel.purge(limit=amount + 1)
