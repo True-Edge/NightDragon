@@ -286,14 +286,13 @@ class Music(commands.Cog):
     @commands.command(name="join", invoke_without_subcommand=True)
     async def _join(self, ctx: commands.Context):
         """Joins a voice channel."""
-
         destination = ctx.author.voice.channel
         if ctx.voice_state.voice:
             await ctx.voice_state.voice.move_to(destination)
             return
 
         ctx.voice_state.voice = await destination.connect()
-
+        
     @commands.command(name="leave" ,aliases=['disconnect'])
     async def _leave(self, ctx: commands.Context):
         """Clears the queue and leaves the voice channel."""
