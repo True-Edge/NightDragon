@@ -25,4 +25,8 @@ async def update(client, message):
         await client.message_create(message.channel, embed=embed)
         os.system('./stop.sh')
         
+@Bot.events
+async def ready(client):
+    print(f"{client:f} Is Ready!")
+
 start_clients()
