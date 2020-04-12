@@ -26,9 +26,19 @@ bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.
 client = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 bot.remove_command('help')
 
-for clientloader in os.listdir('Loader'):
-    if clientloader.endswith('.py'):
-        with open(f'Loader/{clientloader}') as rkm2:
-            exec(rkm2.read())
-    
+for cog in os.listdir('commands'):
+    if cog.endswith(".py"):
+        try:
+            cog = f"commands.{cog.replace('.py', '')}"
+            bot.load_extension(cog)
+        except Exception as err:
+            print("An Error Has Occured, Logs Has Been Generated")
+            logging.basicConfig(filename="Logs/log.txt", filemode='w+', format='%(levelname)s > %(message)s')
+            logging.error("An Error Occured.", exc_info=True)
+
+for cogm2 in os.listdir('commands-m1'):
+    if cogm2.endswith('.py'):
+        with open(f'commands-m1/{cogm2}') as rk:
+            exec(rk.read())
+            
 bot.run(token)
