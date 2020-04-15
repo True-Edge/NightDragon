@@ -149,7 +149,6 @@ class Song:
 
         return embed
 
-
 class SongQueue(asyncio.Queue):
     def __getitem__(self, item):
         if isinstance(item, slice):
