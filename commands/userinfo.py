@@ -15,7 +15,7 @@ class UserInfo(commands.Cog):
         embed.add_field(name="Joined At - ", value=member.joined_at.strftime("%d %b %Y"), inline=True)
         embed.add_field(name="Created At - ", value=member.created_at.strftime("%#d %b %Y"), inline=True)
         embed.add_field(name="Bot? - ", value=member.bot, inline=True)
-        embed.add_field(name=f"Roles ({len(roles)})", value=" ".join([role.mention for role in roles]), inline=False)
+        embed.add_field(name=f"Roles ({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.set_thumbnail(url=member.avatar_url)
         embed.set_footer(text=f"Requested By -> {ctx.author.name}", icon_url=ctx.author.avatar_url)
 
