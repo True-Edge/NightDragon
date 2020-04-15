@@ -18,3 +18,4 @@ Traceback (most recent call last):
   File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 613, in _load_from_module_spec
     raise errors.ExtensionFailed(key, e) from e
 discord.ext.commands.errors.ExtensionFailed: Extension 'commands.version' raised an error: NameError: name 'bot' is not defined
+WARNING > We are being rate limited. Retrying in 2.46 seconds. Handled under the bucket "688361749258305583:None:/channels/{channel_id}/messages/bulk_delete"
