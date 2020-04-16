@@ -6,6 +6,7 @@ __pycache__/
 
 # Bot Additional Files
 .vs
+node_modules
 
 # Bot Logs
 Logs\
