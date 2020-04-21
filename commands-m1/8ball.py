@@ -1,5 +1,5 @@
 @bot.command()
-async def question(ctx, args):
+async def question(ctx, *, args):
     A = (["Yes", "No", "I don't think so"])
     embed = discord.Embed(title="8 Ball Question", colour=discord.Color.from_rgb(255, 215, 0))
     embed.add_field(name="Question >", value=f"{args}", inline=False)
