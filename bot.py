@@ -24,8 +24,9 @@ load_dotenv()
 token = os.getenv("TOKEN")
 
 bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
-
+client = commands.Bot(command_prefix = pref, case_insensitive=True)
 bot.remove_command('help')
+client.remove_command('help')
 
 for cog in os.listdir('commands'):
     if cog.endswith(".py"):

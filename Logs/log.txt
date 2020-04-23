@@ -1,21 +1,63 @@
 ERROR > An Error Occured.
 Traceback (most recent call last):
-  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 608, in _load_from_module_spec
-    setup(self)
-  File "c:\Users\User\Desktop\Bot Maker Items\Bot\Bot-Python\commands\version.py", line 13, in setup
-    bot.add_cog(VerCog(bot))
-  File "c:\Users\User\Desktop\Bot Maker Items\Bot\Bot-Python\commands\version.py", line 6, in __init__
-    self.bot = bot
-NameError: name 'bot' is not defined
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 33, in <module>
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
     bot.load_extension(cog)
-  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 653, in load_extension
-    self._load_from_module_spec(spec, name)
-  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 613, in _load_from_module_spec
-    raise errors.ExtensionFailed(key, e) from e
-discord.ext.commands.errors.ExtensionFailed: Extension 'commands.version' raised an error: NameError: name 'bot' is not defined
-WARNING > We are being rate limited. Retrying in 2.46 seconds. Handled under the bucket "688361749258305583:None:/channels/{channel_id}/messages/bulk_delete"
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.dms' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.help' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.info' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.meme' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.mod' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.music' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.ping' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.userinfo' could not be loaded.
+ERROR > An Error Occured.
+Traceback (most recent call last):
+  File "c:/Users/User/Desktop/Bot Maker Items/Bot/Bot-Python/bot.py", line 34, in <module>
+    bot.load_extension(cog)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38-32\lib\site-packages\discord\ext\commands\bot.py", line 651, in load_extension
+    raise errors.ExtensionNotFound(name)
+discord.ext.commands.errors.ExtensionNotFound: Extension 'commands.version' could not be loaded.
