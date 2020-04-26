@@ -11,7 +11,7 @@ class Meme(commands.Cog):
     @commands.command()
     async def meme(self, ctx):
         memes_submissions = reddit.subreddit('memes').hot()
-        post_to_pick = random.randint(1, 10)
+        post_to_pick = random.randint(1, 20)
         for i in range(0, post_to_pick):
             submission = next(x for x in memes_submissions if not x.stickied)
 
