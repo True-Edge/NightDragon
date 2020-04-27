@@ -404,8 +404,9 @@ class Music(commands.Cog):
 
         if len(ctx.voice_state.songs) == 0:
             return await ctx.send('Empty queue.')
-
-        ctx.voice_state.songs.shuffle()
+        else:
+            ctx.voice_state.songs.shuffle()
+            await ctx.send("Queue Shuffled! :arrows_clockwise:")
 
     @commands.command(name='remove')
     async def _remove(self, ctx: commands.Context, index: int):
@@ -421,13 +422,11 @@ class Music(commands.Cog):
         """Loops the currently playing song.
         Invoke this command again to unloop the song.
         """
-
         if not ctx.voice_state.is_playing:
             return await ctx.send('Nothing being played at the moment.')
 
-        # Inverse boolean value to loop and unloop.
         ctx.voice_state.loop = not ctx.voice_state.loop
-
+        
     @commands.command(name="play")
     async def _play(self, ctx: commands.Context, *, search: str):
         """Plays a song.
@@ -447,9 +446,11 @@ class Music(commands.Cog):
                 await ctx.send('An error occurred while processing this request: {}'.format(str(e)))
             else:
                 song = Song(source)
-
+                embed = discord.Embed(title="Requested Song Added To The Queue", color=discord.Color.from_rgb(255, 215, 0))
+                embed.add_field(name="Song Name", value=f"{str(source)}")
+                embed.set_footer(text=f"Song Requested By {ctx.author}", icon_url=ctx.author.avatar_url)
                 await ctx.voice_state.songs.put(song)
-                await ctx.send('Added To Queue {}'.format(str(source)))
+                await ctx.send(embed=embed)
 
     @_join.before_invoke
     @_play.before_invoke
