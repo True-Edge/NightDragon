@@ -11,3 +11,5 @@ node_modules
 # Bot Logs
 Logs/
 Logs/log.txt
+backup.txt
+Logs/log.txt
