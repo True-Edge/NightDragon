@@ -7,7 +7,7 @@ class DMSCog(commands.Cog):
 
     @commands.command()
     @commands.has_role("Staff")
-    async def dm(self, ctx, member: discord.Member, reason="None"):
+    async def dm(self, ctx, member: discord.Member, *,reason="None"):
         await member.send(reason)
         await ctx.send("Message Sended")
 

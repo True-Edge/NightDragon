@@ -37,9 +37,12 @@ for cog in os.listdir('commands'):
             logging.basicConfig(filename="Logs/log.txt", filemode='w+', format='%(levelname)s > %(message)s')
             logging.error("An Error Occured.", exc_info=True)
 
-for cogm2 in os.listdir('commands-m1'):
-    if cogm2.endswith('.py'):
-        with open(f'commands-m1/{cogm2}') as rk:
-            exec(rk.read())
-           
+for extra_command in os.listdir('commands-m1'):
+    if extra_command.endswith('.py'):
+        try:
+            with open(f'commands-m1/{extra_command}') as rk:
+                exec(rk.read())
+        except Exception as err:
+            traceback(err)
+
 bot.run(token)
