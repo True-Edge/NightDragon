@@ -17,7 +17,7 @@ import random
 from os import system
 
 pref = open("System/prefix.u.g", "r").read()
-owner_id = "413632156061925380"
+owner_id = 413632156061925380
 guild_id = "413632902480396298"
 load_dotenv()
 token = os.getenv("TOKEN")
