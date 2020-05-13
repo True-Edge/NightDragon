@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-import asyncio
+import time
 import os
 import sys
 pref = open("System/prefix.u.g", "r").read()
@@ -14,10 +14,10 @@ class Update(commands.Cog):
     @commands.command()
     async def update(self, ctx):
         if ctx.author.id in owner_id:
-            embed = discord.Embed(title="Access Granted", description="```Updating```", color=discord.Color.from_rgb(255, 215, 0))
+            embed = discord.Embed(title="Access Granted", description="Restarting Service ``TMUX``", color=discord.Color.from_rgb(255, 215, 0))
             await ctx.send(embed=embed)
-            await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="Restarting System")
-            await asyncio.sleep(10)
+            await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="Restarting System"))
+            await time.sleep(5)
             os.system("./stop.sh")
             sys.exit()
         else:
