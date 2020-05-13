@@ -4,6 +4,8 @@ from discord.ext import commands
 import asyncio
 import os
 import sys
+pref = open("System/prefix.u.g", "r").read()
+bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
 class Update(commands.Cog):
     def __init__(self, bot):
