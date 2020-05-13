@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 
+import asyncio
 import os
 import sys
 owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
@@ -13,6 +14,8 @@ class Update(commands.Cog):
         if ctx.author.id in owner_id:
             embed = discord.Embed(title="Access Granted", description="```Updating```", color=discord.Color.from_rgb(255, 215, 0))
             await ctx.send(embed=embed)
+            await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="Restarting System")
+            await asyncio.sleep(10)
             os.system("./stop.sh")
             sys.exit()
         else:

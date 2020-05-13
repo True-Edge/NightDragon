@@ -25,6 +25,11 @@ token = os.getenv("TOKEN")
 bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
 bot.remove_command('help')
 
+@bot.event
+async def on_ready():
+    print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"{pref} ./[True Edge]"))
+
 for cog in os.listdir('commands'):
     if cog.endswith(".py"):
         try:
