@@ -17,15 +17,13 @@ import random
 from os import system
 
 pref = open("System/prefix.u.g", "r").read()
-owner_id = 413632156061925380
+owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
 guild_id = "413632902480396298"
 load_dotenv()
 token = os.getenv("TOKEN")
 
 bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Game(name="Loading..."))
-client = commands.Bot(command_prefix = pref, case_insensitive=True)
 bot.remove_command('help')
-client.remove_command('help')
 
 for cog in os.listdir('commands'):
     if cog.endswith(".py"):
@@ -39,10 +37,7 @@ for cog in os.listdir('commands'):
 
 for extra_command in os.listdir('commands-m1'):
     if extra_command.endswith('.py'):
-        try:
             with open(f'commands-m1/{extra_command}') as rk:
                 exec(rk.read())
-        except Exception as err:
-            traceback(err)
 
 bot.run(token)
