@@ -20,7 +20,7 @@ from os import system
 pref = open("System/prefix.u.g", "r").read()
 Status = [f"{pref} ./[True Edge]", "wollycraft.net"]
 owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
-guild_id = "413632902480396298"
+guild_id = 413632902480396298
 load_dotenv()
 token = os.getenv("TOKEN")
 
