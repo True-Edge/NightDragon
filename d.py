@@ -18,7 +18,7 @@ import random
 from os import system
 
 pref = open("System/prefix.u.g", "r").read()
-status = [f"{pref} ./[True Edge]", "wollycraft.net"]
+Status = [f"{pref} ./[True Edge]", "wollycraft.net"]
 owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
 guild_id = "413632902480396298"
 load_dotenv()
@@ -30,8 +30,8 @@ bot.remove_command('help')
 async def change_stat():
     await bot.wait_until_ready()
     while not bot.is_closed():
-        st = random.choice(status)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=(st)))
+        st = random.choice(Status)
+        await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
         await asyncio.sleep(10)
 @bot.event
 async def on_ready():
