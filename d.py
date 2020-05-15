@@ -1,6 +1,6 @@
 import discord
 import json
-from discord.ext import commands
+from discord.ext import commands,tasks
 from discord.utils import get
 from discord import FFmpegPCMAudio
 from dotenv import load_dotenv
@@ -18,7 +18,6 @@ import random
 from os import system
 
 pref = open("System/prefix.u.g", "r").read()
-Status = [f"{pref} ./[True Edge]", "wollycraft.net"]
 owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
 guild_id = 413632902480396298
 load_dotenv()
@@ -30,9 +29,13 @@ bot.remove_command('help')
 async def change_stat():
     await bot.wait_until_ready()
     while not bot.is_closed():
-        st = random.choice(Status)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
-        await asyncio.sleep(10)
+        for guild in bot.guilds:
+            x = guild.member_count
+            Status = [f"{pref} ./[True Edge]", "wollycraft.net", f"Over {x} user"]
+            for st in Status:
+                await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
+                await asyncio.sleep(8)
+
 @bot.event
 async def on_ready():
     print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
