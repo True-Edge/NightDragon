@@ -6,15 +6,19 @@ from discord import FFmpegPCMAudio
 from dotenv import load_dotenv
 from pathlib import Path
 import youtube_dl
-
+import functools
+import itertools
+import math
+import random
+from async_timeout import timeout
 import asyncio
 import datetime
 import time
 import sys
-
+import praw
 import os
-import logging
-import random
+import datetime
+from datetime import date
 from os import system
 
 pref = open("System/prefix.u.g", "r").read()
@@ -30,7 +34,7 @@ async def change_stat():
     await bot.wait_until_ready()
     while not bot.is_closed():
         for guild in bot.guilds:
-            x = guild.member_count
+            x = guild.member_count    
             Status = [f"{pref} ./[True Edge]", "wollycraft.net", f"Over {x} user"]
             for st in Status:
                 await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
@@ -40,19 +44,9 @@ async def change_stat():
 async def on_ready():
     print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
 
-for cog in os.listdir('commands'):
-    if cog.endswith(".py"):
-        try:
-            cog = f"commands.{cog.replace('.py', '')}"
-            bot.load_extension(cog)
-        except Exception as err:
-            print("An Error Has Occured, Logs Has Been Generated")
-            logging.basicConfig(filename="Logs/log.txt", filemode='w+', format='%(levelname)s > %(message)s')
-            logging.error("An Error Occured.", exc_info=True)
-
-for extra_command in os.listdir('commands-m1'):
-    if extra_command.endswith('.py'):
-            with open(f'commands-m1/{extra_command}') as rk:
+for command in os.listdir('commands'):
+    if command.endswith('.py'):
+            with open(f'commands/{command}') as rk:
                 exec(rk.read())
 
 bot.loop.create_task(change_stat())

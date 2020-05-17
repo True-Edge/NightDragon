@@ -1,8 +1,0 @@
-ERROR > An Error Occured
-Traceback (most recent call last):
-  File "bot.py", line 38, in <module>
-    exec(rk.read())
-  File "<string>", line 2
-    async def stat(ctx, member=discord.Member)
-                                             ^
-SyntaxError: invalid syntax
