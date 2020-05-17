@@ -30,7 +30,7 @@ async def change_stat():
     await bot.wait_until_ready()
     while not bot.is_closed():
         for guild in bot.guilds:
-            x = guild.member_count    
+            x += guild.member_count    
             Status = [f"{pref} ./[True Edge]", "wollycraft.net", f"Over {x} user"]
             for st in Status:
                 await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
