@@ -5,12 +5,8 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from dotenv import load_dotenv
 from pathlib import Path
-import youtube_dl
-import functools
-import itertools
 import math
 import random
-from async_timeout import timeout
 import asyncio
 import datetime
 import time
@@ -46,8 +42,12 @@ async def on_ready():
 
 for command in os.listdir('commands'):
     if command.endswith('.py'):
-            with open(f'commands/{command}') as rk:
-                exec(rk.read())
+        with open(f'commands/{command}') as rk:
+            exec(rk.read())
+
+for music in os.listdir('./Music'):
+    if music.endswith('.py'):
+        bot.load_extension(f"Music.{music[:-3]}")
 
 bot.loop.create_task(change_stat())
 bot.run(token)
