@@ -39,15 +39,11 @@ async def change_stat():
 @bot.event
 async def on_ready():
     print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
+    bot.loop.create_task(change_stat())
 
 for command in os.listdir('commands'):
     if command.endswith('.py'):
         with open(f'commands/{command}') as rk:
             exec(rk.read())
 
-for music in os.listdir('./Music'):
-    if music.endswith('.py'):
-        bot.load_extension(f"Music.{music[:-3]}")
-
-bot.loop.create_task(change_stat())
 bot.run(token)

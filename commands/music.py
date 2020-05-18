@@ -23,7 +23,7 @@ class YTDLError(Exception):
 
 class YTDLSource(discord.PCMVolumeTransformer):
     YTDL_OPTIONS = {
-        'format': 'bestaudio/best',
+        'format': 'bestaudio',
         'extractaudio': True,
         'audioformat': 'mp3',
         'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
@@ -142,9 +142,9 @@ class Song:
                                description='{0.source.title}'.format(self),
                                color=discord.Color.from_rgb(255, 215, 0))
                  .add_field(name='Duration', value=self.source.duration)
-                 .add_field(name='Requested by', value=self.requester.mention)
                  .add_field(name='Uploader', value='[{0.source.uploader}]({0.source.uploader_url})'.format(self))
                  .add_field(name='URL', value='[Click]({0.source.url})'.format(self))
+                 .set_footer(text=f"Requested By - {self.requester}", icon_url=self.requester.avatar_url)
                  .set_thumbnail(url=self.source.thumbnail))
 
         return embed
@@ -462,5 +462,4 @@ class Music(commands.Cog):
             if ctx.voice_client.channel != ctx.author.voice.channel:
                 raise commands.CommandError('Bot is already in a voice channel.')
 
-def setup(bot):
-    bot.add_cog(Music(bot))
+bot.add_cog(Music(bot))

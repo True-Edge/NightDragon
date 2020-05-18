@@ -30,5 +30,5 @@ async def clear(ctx, amount: int):
     await ctx.channel.purge(limit=amount + 1)
     embed = discord.Embed(title="Message Purged", colour=discord.Color.from_rgb(255, 215, 0))
 
-    embed.add_field(name="Ammount Of Message Purged - ", value=amount)
+    embed.add_field(name="Amount Of Message Purged - ", value=amount)
     await ctx.send(embed=embed)
