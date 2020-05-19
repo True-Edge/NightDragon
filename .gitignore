@@ -1,15 +1,6 @@
 # Bot Keys
 .env
 
-# Bot Cache
-__pycache__/
-
 # Bot Additional Files
 .vs
-node_modules
 
-# Bot Logs
-Logs/
-Logs/log.txt
-backup.txt
-Logs/log.txt
