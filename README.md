@@ -3,4 +3,4 @@
 ________________________________________________________________________________________
 
 Link To Discord:
-[Press Me!](http://discord.gg/qxwXRHH)
+[Press Me!](wollycraft.ml)
