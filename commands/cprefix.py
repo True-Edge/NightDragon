@@ -1,5 +1,6 @@
 @bot.command()
-async def cprefix(ctx, prefix):
+@commands.is_owner()
+async def cprefix(ctx, prefix: None):
     if prefix == None:
         ctx.send("Prefix cannot be empty!")
 
@@ -10,3 +11,5 @@ async def cprefix(ctx, prefix):
 
     with open('System/Prefixes.json', 'w') as f:
         json.dump(prefixes, f, indent = 4)
+
+    await ctx.send(f"Prefix Has Changed To {prefix}")
