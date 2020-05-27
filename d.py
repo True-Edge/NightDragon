@@ -17,13 +17,18 @@ import datetime
 from datetime import date
 from os import system
 
-pref = open("System/prefix.u.g", "r").read()
+def get_sprefix(bot, message):
+    with open("System/Prefixes.json", "r") as f:
+        prefixes = json.load(f)
+
+    return prefixes[str(message.guild.id)]
+
 owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
 guild_id = 413632902480396298
 load_dotenv()
 token = os.getenv("TOKEN")
 
-bot = commands.Bot(command_prefix = pref, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
+bot = commands.Bot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
 async def change_stat():
@@ -31,7 +36,7 @@ async def change_stat():
     while not bot.is_closed():
         for guild in bot.guilds:
             x = guild.member_count
-            Status = [f"{pref} ./[True Edge]", "wollycraft.ml", f"Over {x} user"]
+            Status = [f"{get_sprefix} ./[True Edge]", "wollycraft.ml", f"Over {x} user"]
             for st in Status:
                 await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
                 await asyncio.sleep(8)

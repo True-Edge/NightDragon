@@ -1,9 +1,19 @@
 @bot.event
-async def on_member_join(member: discord.Member):
-        if str(member.guild.id) != "413632902480396298":
-            pass                   
-        else:
-            r = get(member.guild.roles, name='[Not Verified]')
-            await member.send("Welcome {member.mention}, Please Do {}verify To Start Verify!".format(member, pref))
-            await member.add_roles(r)
+async def on_guild_join(guild):
+    with open('System/Prefixes.json', 'r') as f:
+        prefixes = json.load(f)
 
+    prefixes[str(guild.id)] = 'n$'
+
+    with open('System/Prefixes.json', 'w') as f:
+        json.dump(prefixes, f, indent = 4)
+
+@bot.event
+async def on_guild_remove(guild):
+    with open('System/Prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    prefixes.pop[str(guild.id)]
+
+    with open('System/Prefixes.json', 'w') as f:
+        json.dump(prefixes, f, indent = 4)

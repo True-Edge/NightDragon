@@ -4,9 +4,9 @@ async def help(ctx, args=None):
     embed = discord.Embed(title="List Of Command", colour=discord.Color.from_rgb(255, 215, 0))
         
     if args == None:
-        embed.add_field(name="Command", value=f"{pref}help command",)
-        embed.add_field(name="Mods Command", value=f"{pref}help mod",)
-        embed.add_field(name="Music Command", value=f"{pref}help music",)
+        embed.add_field(name="Command", value=f"{get_sprefix}help command",)
+        embed.add_field(name="Mods Command", value=f"{get_sprefix}help mod",)
+        embed.add_field(name="Music Command", value=f"{get_sprefix}help music",)
         embed.set_footer(text=f"Requested By -> {ctx.author}", icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
