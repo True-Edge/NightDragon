@@ -1,6 +1,6 @@
 @bot.command()
 @commands.is_owner()
-async def cprefix(ctx, prefix: None):
+async def cprefix(ctx, prefix=None):
     if prefix == None:
         ctx.send("Prefix cannot be empty!")
 

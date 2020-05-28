@@ -4,3 +4,5 @@
 # Bot Additional Files
 .vs
 
+# Bot Server Prefixes
+System/Prefixes.json
