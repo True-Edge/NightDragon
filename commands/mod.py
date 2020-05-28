@@ -1,4 +1,4 @@
-@bot.command()
+@bot.command(description="Kick member out from the guild||<member> <reason>")
 @commands.has_role("Staff")
 async def kick(ctx, member: discord.Member, *, reason="None"):
     await member.kick(reason=reason)
@@ -11,7 +11,7 @@ async def kick(ctx, member: discord.Member, *, reason="None"):
     await member.send(embed=embed)
     await logs.send(embed=embed)
 
-@bot.command()
+@bot.command(description="Bans member from the guild||<member> <reason>")
 @commands.has_role("Staff")
 async def ban(ctx, member: discord.Member, *, reason="None"):
     await member.ban(reason=reason)
@@ -24,7 +24,7 @@ async def ban(ctx, member: discord.Member, *, reason="None"):
     await member.send(embed=embed)
     await logs.send(embed=embed)
 
-@bot.command(aliases=["purge"])
+@bot.command(aliases=["purge"], description="Clears number of message||<amount>")
 @commands.has_role("Staff")
 async def clear(ctx, amount: int):
     await ctx.channel.purge(limit=amount + 1)

@@ -1,4 +1,4 @@
-@bot.command()
+@bot.command(descripton="Ask a question||<question>")
 async def question(ctx, *, args):
     A = (["Yes", "No", "I don't think so"])
     embed = discord.Embed(title="8 Ball Question", colour=discord.Color.from_rgb(255, 215, 0))

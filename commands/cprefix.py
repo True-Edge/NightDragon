@@ -1,4 +1,4 @@
-@bot.command()
+@bot.command(description="Changes Bot Prefix||<prefix>")
 @commands.is_owner()
 async def cprefix(ctx, prefix=None):
     if prefix == None:

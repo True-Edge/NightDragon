@@ -1,4 +1,4 @@
-@bot.command()
+@bot.command(description="Refresh the bot")
 async def update(ctx):
     if ctx.author.id in owner_id:
         await bot.change_presence(status=discord.Status.do_not_disturb, activity=discord.Activity(type=2, name="Service TMUX"))
