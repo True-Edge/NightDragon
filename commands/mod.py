@@ -24,7 +24,7 @@ async def ban(ctx, member: discord.Member, *, reason="None"):
     await member.send(embed=embed)
     await logs.send(embed=embed)
 
-@bot.command(aliases=["purge"], description="Clears number of message||<amount>")
+@bot.command(description="Clears number of message||<amount>", aliases=["purge"])
 @commands.has_role("Staff")
 async def clear(ctx, amount: int):
     await ctx.channel.purge(limit=amount + 1)

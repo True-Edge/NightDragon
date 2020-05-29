@@ -3,13 +3,16 @@
 async def cprefix(ctx, prefix=None):
     if prefix == None:
         ctx.send("Prefix cannot be empty!")
+    else:
+        try:
+            with open('System/Prefixes.json', 'r') as f:
+                prefixes = json.load(f)
 
-    with open('System/Prefixes.json', 'r') as f:
-        prefixes = json.load(f)
+            prefixes[str(ctx.guild.id)] = prefix
 
-    prefixes[str(ctx.guild.id)] = prefix
+            with open('System/Prefixes.json', 'w') as f:
+                json.dump(prefixes, f, indent = 4)
 
-    with open('System/Prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent = 4)
-
-    await ctx.send(f"Prefix Has Changed To {prefix}")
+            await ctx.send(f"Prefix Has Changed To {prefix}")
+        except:
+            await ctx.send(f"Failed To Change Prefix To {prefix}")
