@@ -32,3 +32,27 @@ async def clear(ctx, amount: int):
 
     embed.add_field(name="Amount Of Message Purged - ", value=amount)
     await ctx.send(embed=embed)
+
+@bot.command(description="Stop users from spamming")
+@commands.has_role("Staff")
+async def lockdown(ctx,channel: discord.TextChannel=None):
+    channel = channel or ctx.channel
+
+    if ctx.guild.default_role not in channel.overwrites:
+        overwrites = {
+            ctx.guild.default_role: discord.PermissionOverwrite(send_messages=False)
+        }
+        await channel.edit(overwrites=overwrites)
+        await ctx.send(" Lockdown Initiated")
+
+@bot.command(description="Unlock Lockdown")
+@commands.has_role("Staff")
+async def unlock(ctx,channel: discord.TextChannel=None):
+    channel = channel or ctx.channel
+
+    if ctx.guild.default_role not in channel.overwrites:
+        overwrites = {
+            ctx.guild.default_role: discord.PermissionOverwrite(send_messages=True)
+        }
+        await channel.edit(overwrites=overwrites)
+        await ctx.send(" Lockdown Ended ")
