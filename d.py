@@ -31,6 +31,12 @@ token = os.getenv("TOKEN")
 bot = commands.Bot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
+def sprefix():
+    with open("System/Prefixes.json", "r") as f:
+        pref = json.load(f)
+
+    pref[str(message.guild.id)]
+
 async def change_stat():
     await bot.wait_until_ready()
     while not bot.is_closed():
@@ -43,7 +49,7 @@ async def change_stat():
 
 @bot.event
 async def on_ready():
-    print('----------\nLogged As [{0.user}]\nUser ID: [{0.user.id}]\n----------'.format(bot))
+    print(f'----------\nLogged As [{bot.user}]\nUser ID: [{bot.user.id}]\n----------')
     bot.loop.create_task(change_stat())
 
 for command in os.listdir('commands'):
