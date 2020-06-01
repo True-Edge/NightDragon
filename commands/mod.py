@@ -33,26 +33,26 @@ async def clear(ctx, amount: int):
     embed.add_field(name="Amount Of Message Purged - ", value=amount)
     await ctx.send(embed=embed)
 
-@bot.command(description="Stop users from spamming")
+@bot.command(description="Locks Channel")
 @commands.has_role("Staff")
-async def lockdown(ctx,channel: discord.TextChannel=None):
+async def lockdown(ctx, channel: discord.TextChannel=None):
+    channel = channel or ctx.channel
+    
+    if channel.overwrites[ctx.guild.default_role].send_messages == True or channel.overwrites[ctx.guild.default_role].send_messages == None:
+        await channel.set_permissions(ctx.guild.default_role, send_messages=False, read_messages=False)
+        await channel.send(f"{channel.name} Is Now :lock:")
+    else:
+        await channel.send(f"Maybe {channel.name} is :lock:")
+
+@bot.command(description="Unlocks Locked Down Channel")
+@commands.has_role("Staff")
+async def unlock(ctx, channel: discord.TextChannel=None):
     channel = channel or ctx.channel
 
-    if ctx.guild.default_role not in channel.overwrites:
-        overwrites = {
-            ctx.guild.default_role: discord.PermissionOverwrite(send_messages=False)
-        }
-        await channel.edit(overwrites=overwrites)
-        await ctx.send(" Lockdown Initiated")
-
-@bot.command(description="Unlock Lockdown")
-@commands.has_role("Staff")
-async def unlock(ctx,channel: discord.TextChannel=None):
-    channel = channel or ctx.channel
-
-    if ctx.guild.default_role not in channel.overwrites:
-        overwrites = {
-            ctx.guild.default_role: discord.PermissionOverwrite(send_messages=True)
-        }
-        await channel.edit(overwrites=overwrites)
-        await ctx.send(" Lockdown Ended ")
+    if channel.overwrites[ctx.guild.default_role].send_messages == False:
+        await channel.set_permissions(ctx.guild.default_role, send_messages=True, read_messages=True)
+        await channel.send(f"{channel.name} Is Now :unlock:")
+    else:
+        await channel.send(f"Maybe {channel.name} Is :unlock:")
+    
+    
