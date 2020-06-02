@@ -46,7 +46,7 @@ async def on_ready():
     print(f'----------\nLogged As [{bot.user}]\nUser ID: [{bot.user.id}]\n----------')
     bot.loop.create_task(change_stat())
 
-@bot.event
+@bot.listen()
 async def on_message(message):
     if message.content.startswith("getmyserverprefix"):
         channel = message.channel
