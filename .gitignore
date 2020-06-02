@@ -6,6 +6,8 @@
 
 # Bot Server Prefixes (Linux Type OS)
 System/Prefixes.json
+cmds/dcmds.json
 
 # Bot Server Prefixes (Windows Type OS)
 System\Prefixes.json
+cmds\dcmds.json
