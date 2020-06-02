@@ -1,13 +1,5 @@
-# Bot Keys
+# Must Ignore Files
 .env
-
-# Bot Additional Files
 .vs
-
-# Bot Server Prefixes (Linux Type OS)
 System/Prefixes.json
 cmds/dcmds.json
-
-# Bot Server Prefixes (Windows Type OS)
-System\Prefixes.json
-cmds\dcmds.json
