@@ -31,18 +31,12 @@ token = os.getenv("TOKEN")
 bot = commands.Bot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
-def sprefix():
-    with open("System/Prefixes.json", "r") as f:
-        pref = json.load(f)
-
-    pref[str(message.guild.id)]
-
 async def change_stat():
     await bot.wait_until_ready()
     while not bot.is_closed():
         for guild in bot.guilds:
             x = guild.member_count
-            Status = ["wollycraft.ml", f"Over {x} user"]
+            Status = ["getmyserverprefix","wollycraft.ml", f"Over {x} user"]
             for st in Status:
                 await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
                 await asyncio.sleep(8)
@@ -51,6 +45,14 @@ async def change_stat():
 async def on_ready():
     print(f'----------\nLogged As [{bot.user}]\nUser ID: [{bot.user.id}]\n----------')
     bot.loop.create_task(change_stat())
+
+@bot.event
+async def on_message(message):
+    if message.content.startswith("getmyserverprefix"):
+        channel = message.channel
+        await channel.send(f"Your server prefix is {await bot.get_prefix(message)}")
+    else:
+        pass
 
 for command in os.listdir('commands'):
     if command.endswith('.py'):
