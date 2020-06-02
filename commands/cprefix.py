@@ -1,8 +1,8 @@
 @bot.command(description="Changes Bot Prefix||<prefix>")
 @commands.is_owner()
 async def cprefix(ctx, prefix=None):
-    if prefix == None:
-        ctx.send("Prefix cannot be empty!")
+    if prefix == None or discord.Member.mention:
+        await ctx.send("Prefix cannot be empty or mentions!")
     else:
         try:
             with open('System/Prefixes.json', 'r') as f:
