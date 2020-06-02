@@ -38,8 +38,9 @@ async def clear(ctx, amount: int):
 async def lockdown(ctx, channel: discord.TextChannel=None):
     channel = channel or ctx.channel
     
+    perms = discord.PermissionOverwrite(send_messages=False, read_messages=False)
     if channel.overwrites[ctx.guild.default_role].send_messages == True or channel.overwrites[ctx.guild.default_role].send_messages == None:
-        await channel.set_permissions(ctx.guild.default_role, send_messages=False, read_messages=False)
+        await channel.set_permissions(ctx.guild.default_role, overwrite=perms)
         await channel.send(f"{channel.name} Is Now :lock:")
     else:
         await channel.send(f"Maybe {channel.name} is :lock:")
@@ -49,8 +50,9 @@ async def lockdown(ctx, channel: discord.TextChannel=None):
 async def unlock(ctx, channel: discord.TextChannel=None):
     channel = channel or ctx.channel
 
+    perms = discord.PermissionOverwrite(send_messages=True, read_messages=True)
     if channel.overwrites[ctx.guild.default_role].send_messages == False:
-        await channel.set_permissions(ctx.guild.default_role, send_messages=True, read_messages=True)
+        await channel.set_permissions(ctx.guild.default_role, overwrite=perms)
         await channel.send(f"{channel.name} Is Now :unlock:")
     else:
         await channel.send(f"Maybe {channel.name} Is :unlock:")
