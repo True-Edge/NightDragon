@@ -51,8 +51,6 @@ async def on_message(message):
     if message.content.startswith("getmyserverprefix"):
         channel = message.channel
         await channel.send(f"Your server prefix is {await bot.get_prefix(message)}")
-    else:
-        pass
 
 for command in os.listdir('commands'):
     if command.endswith('.py'):
