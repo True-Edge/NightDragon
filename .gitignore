@@ -2,4 +2,4 @@
 .env
 .vs
 System/Prefixes.json
-cmds/dcmds.json
+cmds
