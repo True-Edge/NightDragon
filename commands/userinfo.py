@@ -1,5 +1,5 @@
 @bot.command()
-async def stat(ctx, member: discord.Member=None):
+async def stat(ctx, *,member: discord.Member=None):
     member = member or ctx.author
     roles = [role for role in member.roles]
     x = member.joined_at.date()
@@ -23,9 +23,3 @@ async def stat(ctx, member: discord.Member=None):
     embed.set_footer(text=f"Requested By -> {ctx.author.name}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
-
-@stat.error
-async def stat_error(ctx, error):
-    if isinstance(error, commands.BadArgument):
-        embed = discord.Embed(title="Error!", description="Uh oh! Looks like i can't find that user", color=discord.Color.from_rgb(255, 215, 0))
-        
