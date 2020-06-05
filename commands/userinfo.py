@@ -1,5 +1,6 @@
 @bot.command()
-async def stat(ctx, member: discord.Member):
+async def stat(ctx, member=discord.Member):
+    member = member or ctx.author
     roles = [role for role in member.roles]
     x = member.joined_at.date()
     y = date.today()
