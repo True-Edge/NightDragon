@@ -1,19 +1,13 @@
 @bot.event
 async def on_guild_join(guild):
-    with open('System/Prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    prefixes[str(guild.id)] = 'n$'
-
-    with open('System/Prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent = 4)
+    prefix = "n$"
+    cre.execute("INSERT INTO sprefix (guildid, prefix) VALUES (?, ?)",(guild.id, prefix))
+    pre.commit()
 
 @bot.event
 async def on_guild_remove(guild):
-    with open('System/Prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    prefixes.pop[str(guild.id)]
-
-    with open('System/Prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent = 4)
+    message = discord.Message
+    before_prec = cre.execute("SELECT * FROM sprefix")
+    after_prec = before_prec.fetchall()
+    cre.execute("DELETE FROM sprefix WHERE guildid = $1 AND prefix = $2",(guild.id, await bot.get_prefix(message)))
+    pre.commit()

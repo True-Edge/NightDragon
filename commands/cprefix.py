@@ -6,14 +6,9 @@ async def cprefix(ctx, prefix=None):
         await ctx.send("Prefix cannot be empty or mentions!")
     else:
         try:
-            with open('System/Prefixes.json', 'r') as f:
-                prefixes = json.load(f)
-
-            prefixes[str(ctx.guild.id)] = prefix
-
-            with open('System/Prefixes.json', 'w') as f:
-                json.dump(prefixes, f, indent = 4)
-
-            await ctx.send(f"Prefix Has Changed To {prefix}")
+            message = discord.Message
+            cre.execute("UPDATE sprefix SET prefix = $1 WHERE guildid = $2",(prefix, ctx.guild.id))
+            pre.commit()
+            await ctx.send(f"Changed Prefix To {prefix}")
         except:
-            await ctx.send(f"Failed To Change Prefix To {prefix}")
+            await ctx.send(f"Failed to change prefix to {prefix}")

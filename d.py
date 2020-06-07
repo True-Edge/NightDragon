@@ -14,16 +14,22 @@ import sys
 import praw
 import os
 import datetime
+import sqlite3
 from datetime import date
 from os import system
+sql = sqlite3.connect(database="ID/ids.db")
+cru = sql.cursor()
+pre = sqlite3.connect(database="System/Prefixes.db")
+cre = pre.cursor()
 
 def get_sprefix(bot, message):
-    with open("System/Prefixes.json", "r") as f:
-        prefixes = json.load(f)
+    before_data = cre.execute("SELECT * FROM sprefix")
+    data = before_data.fetchall()
 
-    return prefixes[str(message.guild.id)]
+    return data[0][1]
 
-owner_id = 413632156061925380, 376102007779360769, 300126997718237195, 529290942306320384, 615942459943288843
+before_owner_id = cru.execute("SELECT * FROM PRI")
+owner_id = before_owner_id.fetchall()[0]
 guild_id = 413632902480396298
 load_dotenv()
 token = os.getenv("TOKEN")
