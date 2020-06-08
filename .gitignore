@@ -1,7 +1,6 @@
 # Must Ignore Files
 .env
 .vs
-System/Prefixes.json
 System/Prefixes.db
 ID/ids.db
 cmds/
