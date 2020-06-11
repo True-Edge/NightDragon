@@ -17,8 +17,6 @@ import datetime
 import sqlite3
 from datetime import date
 from os import system
-sql = sqlite3.connect(database="ID/ids.db")
-cru = sql.cursor()
 pre = sqlite3.connect(database="System/Prefixes.db")
 cre = pre.cursor()
 
@@ -28,7 +26,7 @@ def get_sprefix(bot, message):
 
     return data[0][1]
 
-before_owner_id = cru.execute("SELECT * FROM PRI")
+before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
 guild_id = 413632902480396298
 load_dotenv()

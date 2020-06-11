@@ -1,7 +1,9 @@
 @bot.command(description="Reads ID db")
 async def list_db(ctx):
-    cru.execute("SELECT * FROM PRI")
-    data = cru.fetchall()
+    embed = discord.Embed(title="DB List")
+    cre.execute("SELECT * FROM pri")
+    data = cre.fetchall()
     for list1 in data:
-        await ctx.send(f"{list1}")
-
+        embed.add_field(name="ID", value=list1)
+        
+    await ctx.send(embed=embed)
