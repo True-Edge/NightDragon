@@ -32,7 +32,7 @@ guild_id = 413632902480396298
 load_dotenv()
 token = os.getenv("TOKEN")
 
-bot = commands.Bot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
+bot = commands.AutoShardedBot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
 async def change_stat():
