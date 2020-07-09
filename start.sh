@@ -2,7 +2,7 @@
 clear
 if [ -f .env ]
 then
-  export $(cat .env)
+  export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
 while :
