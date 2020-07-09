@@ -16,6 +16,7 @@ import datetime
 import sqlite3
 from datetime import date
 from os import system
+
 pre = sqlite3.connect(database="System/Prefixes.db")
 cre = pre.cursor()
 
@@ -28,7 +29,7 @@ def get_sprefix(bot, message):
 before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
 guild_id = 413632902480396298
-token = os.getenv("TOKEN")
+token = os.environ.get("TOKEN")
 
 bot = commands.AutoShardedBot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
