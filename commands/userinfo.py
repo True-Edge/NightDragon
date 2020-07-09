@@ -1,5 +1,6 @@
 @bot.command()
 async def stat(ctx, *,member: discord.Member=None):
+    await ctx.message.delete()
     member = member or ctx.author
     roles = [role for role in member.roles]
     x = member.joined_at.date()

@@ -1,6 +1,7 @@
 @bot.command(description="Kick member out from the guild||<member> <reason>")
 @commands.has_role("Staff")
 async def kick(ctx, member: discord.Member, *, reason="None"):
+    await ctx.message.delete()
     await member.kick(reason=reason)
     logs = get(ctx.guild.channels, name="logs")
     embed = discord.Embed(title="Member Kicked", colour=discord.Color.from_rgb(255, 215, 0))
@@ -14,6 +15,7 @@ async def kick(ctx, member: discord.Member, *, reason="None"):
 @bot.command(description="Bans member from the guild||<member> <reason>")
 @commands.has_role("Staff")
 async def ban(ctx, member: discord.Member, *, reason="None"):
+    await ctx.message.delete()
     await member.ban(reason=reason)
     logs = get(ctx.guild.channels, name="logs")
     embed = discord.Embed(title="Member Banned", colour=discord.Color.from_rgb(255, 215, 0))
@@ -27,6 +29,7 @@ async def ban(ctx, member: discord.Member, *, reason="None"):
 @bot.command(description="Clears number of message||<amount>", aliases=["purge"])
 @commands.has_role("Staff")
 async def clear(ctx, amount: int):
+    await ctx.message.delete()
     await ctx.channel.purge(limit=amount + 1)
     embed = discord.Embed(title="Message Purged", colour=discord.Color.from_rgb(255, 215, 0))
 
@@ -36,6 +39,7 @@ async def clear(ctx, amount: int):
 @bot.command(description="Locks Channel")
 @commands.has_role("Staff")
 async def lockdown(ctx, channel: discord.TextChannel=None):
+    await ctx.message.delete()
     channel = channel or ctx.channel
     
     perms = discord.PermissionOverwrite(send_messages=False, read_messages=False)
@@ -48,6 +52,7 @@ async def lockdown(ctx, channel: discord.TextChannel=None):
 @bot.command(description="Unlocks Locked Down Channel")
 @commands.has_role("Staff")
 async def unlock(ctx, channel: discord.TextChannel=None):
+    await ctx.message.delete()
     channel = channel or ctx.channel
 
     perms = discord.PermissionOverwrite(send_messages=True, read_messages=True)

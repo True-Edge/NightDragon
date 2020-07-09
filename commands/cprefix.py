@@ -1,6 +1,7 @@
 @bot.command(description="Changes Bot Prefix||<prefix>")
 @commands.is_owner()
 async def cprefix(ctx, prefix=None):
+    await ctx.message.delete()
     member = discord.Member
     if prefix == None or prefix == member.mention:
         await ctx.send("Prefix cannot be empty or mentions!")

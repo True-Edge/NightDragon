@@ -1,5 +1,6 @@
 @bot.command()
 async def info(ctx):
+    await ctx.message.delete()
     urli = open('System/Invite-Link', 'r').read()
     embed1 = discord.Embed(
         title='About Me',

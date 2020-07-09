@@ -285,6 +285,7 @@ class Music(commands.Cog):
     @commands.command(name="join", invoke_without_subcommand=True, description="Joins a voice channel")
     async def _join(self, ctx: commands.Context):
         """Joins a voice channel."""
+        await ctx.message.delete()
         destination = ctx.author.voice.channel
         if ctx.voice_state.voice:
             await ctx.voice_state.voice.move_to(destination)
@@ -295,7 +296,7 @@ class Music(commands.Cog):
     @commands.command(name="leave" ,aliases=['disconnect'], description="Leave current joined voice channel")
     async def _leave(self, ctx: commands.Context):
         """Clears the queue and leaves the voice channel."""
-
+        await ctx.message.delete()
         if not ctx.voice_state.voice:
             return await ctx.send('Not connected to any voice channel.')
 
@@ -305,7 +306,7 @@ class Music(commands.Cog):
     @commands.command(name='volume', description="Configure output volume")
     async def _volume(self, ctx: commands.Context, *, volume: int):
         """Sets the volume of the player."""
-
+        await ctx.message.delete()
         if not ctx.voice_state.is_playing:
             return await ctx.send('Nothing being played at the moment.')
 
@@ -318,13 +319,13 @@ class Music(commands.Cog):
     @commands.command(name='now',aliases=['current', 'playing'], description="Shows current playing song")
     async def _now(self, ctx: commands.Context):
         """Displays the currently playing song."""
-
+        await ctx.message.delete()
         await ctx.send(embed=ctx.voice_state.current.create_embed())
 
     @commands.command(name='pause', description="Pauses music playing")
     async def _pause(self, ctx: commands.Context):
         """Pauses the currently playing song."""
-
+        await ctx.message.delete()
         if not ctx.voice_state.is_playing:
             await ctx.send("No Song Is Playing!")
         else:
@@ -333,7 +334,7 @@ class Music(commands.Cog):
     @commands.command(name='resume', description="Resume pause song")
     async def _resume(self, ctx: commands.Context):
         """Resumes a currently paused song."""
-
+        await ctx.message.delete()
         if not ctx.voice_state.is_playing and ctx.voice_state.voice.is_paused():
             await ctx.send("No Song Is Playing Or Paused.")
         else:
@@ -342,7 +343,7 @@ class Music(commands.Cog):
     @commands.command(name='stop', description="Stop current playing song and clear queue")
     async def _stop(self, ctx: commands.Context):
         """Stops playing song and clears the queue."""
-
+        await ctx.message.delete()
         ctx.voice_state.songs.clear()
 
         if not ctx.voice_state.is_playing:
@@ -355,7 +356,7 @@ class Music(commands.Cog):
         """Vote to skip a song. The requester can automatically skip.
         3 skip votes are needed for the song to be skipped.
         """
-
+        await ctx.message.delete()
         if not ctx.voice_state.is_playing:
             return await ctx.send('Not playing any music right now...')
 
@@ -380,7 +381,7 @@ class Music(commands.Cog):
         """Shows the player's queue.
         You can optionally specify the page to show. Each page contains 10 elements.
         """
-
+        await ctx.message.delete()
         if len(ctx.voice_state.songs) == 0:
             return await ctx.send('Empty queue.')
 
@@ -401,7 +402,7 @@ class Music(commands.Cog):
     @commands.command(name='shuffles', description="Shuffle the queue")
     async def _shuffle(self, ctx: commands.Context):
         """Shuffles the queue."""
-
+        await ctx.message.delete()
         if len(ctx.voice_state.songs) == 0:
             return await ctx.send('Empty queue.')
         else:
@@ -411,7 +412,7 @@ class Music(commands.Cog):
     @commands.command(name='remove', description="Delete songs inside queue")
     async def _remove(self, ctx: commands.Context, index: int):
         """Removes a song from the queue at a given index."""
-
+        await ctx.message.delete()
         if len(ctx.voice_state.songs) == 0:
             return await ctx.send('Empty queue.')
 
@@ -422,6 +423,7 @@ class Music(commands.Cog):
         """Loops the currently playing song.
         Invoke this command again to unloop the song.
         """
+        await ctx.message.delete()
         if not ctx.voice_state.is_playing:
             return await ctx.send('Nothing being played at the moment.')
 
@@ -435,7 +437,7 @@ class Music(commands.Cog):
         This command automatically searches from various sites if no URL is provided.
         A list of these sites can be found here: https://rg3.github.io/youtube-dl/supportedsites.html
         """
-
+        await ctx.message.delete()
         if not ctx.voice_state.voice:
             await ctx.invoke(self._join)
 

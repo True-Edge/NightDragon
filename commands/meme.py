@@ -2,6 +2,7 @@ reddit = praw.Reddit(client_id="dppEVP0A5XgxfQ", client_secret="VvzhNIrQkJGtQdrd
 
 @bot.command()
 async def meme(ctx):
+    await ctx.message.delete()
     memes_submissions = reddit.subreddit('memes').hot()
     post_to_pick = random.randint(1, 20)
     for i in range(0, post_to_pick):

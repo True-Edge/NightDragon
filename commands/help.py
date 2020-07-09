@@ -1,5 +1,6 @@
 @bot.command()
 async def help(ctx, *, arguments=None):
+    await ctx.message.delete()
     if not arguments:
         cmds = {}
         with open('cmds/dcmds.json', 'w') as f:

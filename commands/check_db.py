@@ -1,5 +1,6 @@
 @bot.command(description="Reads ID db")
 async def list_db(ctx):
+    await ctx.message.delete()
     embed = discord.Embed(title="DB List")
     cre.execute("SELECT * FROM pri")
     data = cre.fetchall()

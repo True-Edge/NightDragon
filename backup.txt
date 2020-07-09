@@ -1,5 +1,0 @@
-```css\n{0.source.title}\n```'.format(self),
-
-
- # Inverse boolean value to loop and unloop.
-        ctx.voice_state.loop = not ctx.voice_state.loop
