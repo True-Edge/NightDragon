@@ -3,7 +3,6 @@ import json
 from discord.ext import commands,tasks
 from discord.utils import get
 from discord import FFmpegPCMAudio
-from dotenv import load_dotenv
 from pathlib import Path
 import math
 import random
@@ -29,7 +28,6 @@ def get_sprefix(bot, message):
 before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
 guild_id = 413632902480396298
-load_dotenv()
 token = os.getenv("TOKEN")
 
 bot = commands.AutoShardedBot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
