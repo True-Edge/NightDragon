@@ -16,6 +16,8 @@ import datetime
 import sqlite3
 from datetime import date
 from os import system
+from dotenv import load_dotenv
+load_dotenv()
 
 pre = sqlite3.connect(database="System/Prefixes.db")
 cre = pre.cursor()
