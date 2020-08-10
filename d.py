@@ -1,4 +1,4 @@
-import discord, praw, youtube_dl
+import discord, praw, lavalink
 import os, sys, sqlite3, json, psutil
 import time, datetime
 import math, random, asyncio, itertools, functools
