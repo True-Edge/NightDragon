@@ -1,10 +1,10 @@
-@bot.event
+@bot.listen()
 async def on_guild_join(guild):
     prefix = "n$"
     cre.execute("INSERT INTO sprefix (guildid, prefix) VALUES (?, ?)",(guild.id, prefix))
     pre.commit()
 
-@bot.event
+@bot.listen()
 async def on_guild_remove(guild):
     message = discord.Message
     before_prec = cre.execute("SELECT * FROM sprefix")
