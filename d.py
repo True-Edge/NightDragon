@@ -22,7 +22,6 @@ before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
 token = os.environ.get("TOKEN")
 guild_id = 413632902480396298
-bot_id = 648085129599647744
 
 def get_sprefix(bot, message):
     before_data = cre.execute("SELECT * FROM sprefix")
@@ -43,15 +42,14 @@ async def change_stat():
 @bot.listen()
 async def on_ready():
     print(f'----------\nLogged As [{bot.user}]\nUser ID: [{bot.user.id}]\n----------')
-    bot.loop.create_task(change_stat())
     for command in os.listdir('commands'):
         if command.endswith('.py'):
             with open(f'commands/{command}') as rk:
                 exec(rk.read())
-
-for events in os.listdir('events'):
-    if events.endswith('.py'):
-        with open(f"events/{events}") as rk1:
-            exec(rk1.read())
+    for events in os.listdir('events'):
+        if events.endswith('.py'):
+            with open(f"events/{events}") as rk1:
+                exec(rk1.read())
+    bot.loop.create_task(change_stat())
 
 bot.run(token)
