@@ -196,14 +196,15 @@ class Music(commands.Cog):
     async def queue(self, ctx):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         queues = player.queue[0:10]
-
+        fresult = ''
         i = 0
+
         for fqueue in queues:
             i = i + 1
-            fresult = f"{i}) {fqueue}\n"
+            fresult = fresult + f"{i}) {fqueue['title']}\n"
 
         embed = discord.Embed()
-        embed.description = player.current() + fresult
+        embed.description = fresult
 
         await ctx.send(embed=embed)
 
@@ -226,12 +227,20 @@ class Music(commands.Cog):
     @commands.command(name="skip")
     async def skip(self, ctx):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
-        if len(player.queue) + len(player.current) > 1 and player.is_connected:
+        if len(player.queue) > 0 and player.is_connected:
+            await ctx.send("Skippe")
             await player.skip()
         else:
             await ctx.send("There is no any other song in the queue!")
 
-
-
+    @commands.command(name="remove")
+    async def remove(self, ctx, rc: int):
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        if len(player.queue) > 1:
+            rc = rc - 1
+            await player.queue.clear(rc)
+            await ctx.send(f"Cleared {int}) in queue")
+        else:
+            await ctx.send("Queue has 0 tracks to play!")
 
 bot.add_cog(Music(bot))
