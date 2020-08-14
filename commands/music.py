@@ -160,7 +160,7 @@ class Music(commands.Cog):
         def check(message):
             return ctx.author == message.author
 
-        response = await self.bot.wait_for('message', check=check)
+        response = await self.bot.wait_for('message', check=check, timeout=20)
         track = tracks[int(response.content)-1]
         
         embed = discord.Embed(color=discord.Color.blurple())
@@ -228,7 +228,7 @@ class Music(commands.Cog):
     async def skip(self, ctx):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         if len(player.queue) > 0 and player.is_connected:
-            await ctx.send("Skippe")
+            await ctx.send("Skipped")
             await player.skip()
         else:
             await ctx.send("There is no any other song in the queue!")
@@ -237,10 +237,22 @@ class Music(commands.Cog):
     async def remove(self, ctx, rc: int):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         if len(player.queue) > 1:
-            rc = rc - 1
-            await player.queue.clear(rc)
-            await ctx.send(f"Cleared {int}) in queue")
+            dc = int(rc - 1)
+            del player.queue[dc]
+            await ctx.send(f"Cleared track {rc}) in queue")
         else:
             await ctx.send("Queue has 0 tracks to play!")
 
+    @commands.command(aliases=["np"])
+    async def nowplaying(self, ctx):
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        if player.is_playing:
+            pl = player.current
+            plc = f"https://youtube.com/watch?v={pl['identifier']}"
+            embed = discord.Embed()
+            embed.title = "Now playing:"
+            embed.add_field(name="Name: ", value=f'[{pl["title"]}]({plc})')
+            await ctx.send(embed=embed)
+
+    @commands.command()
 bot.add_cog(Music(bot))
