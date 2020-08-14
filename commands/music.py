@@ -183,7 +183,7 @@ class Music(commands.Cog):
             return await ctx.send('Not connected.')
 
         if not ctx.author.voice or (player.is_connected and ctx.author.voice.channel.id != int(player.channel_id)):
-            return await ctx.send('You\'re not in my voicechannel!')
+            return await ctx.send('You\'re not in my voice channel!')
 
         player.queue.clear()
 
@@ -236,7 +236,7 @@ class Music(commands.Cog):
     @commands.command(name="remove")
     async def remove(self, ctx, rc: int):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
-        if len(player.queue) > 1:
+        if len(player.queue) > 0:
             dc = int(rc - 1)
             del player.queue[dc]
             await ctx.send(f"Cleared track {rc}) in queue")
@@ -254,5 +254,14 @@ class Music(commands.Cog):
             embed.add_field(name="Name: ", value=f'[{pl["title"]}]({plc})')
             await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(aliases=["v"])
+    async def volume(self, ctx, vol: int):
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+
+        if player.is_playing and vol == vol < 101 and vol == vol > -1:
+            await ctx.send(f"Player Volume Has Been Configured To {vol}")
+            await player.set_volume(vol)
+        else:
+            await ctx.send("Volume Is Out Of Range")
+
 bot.add_cog(Music(bot))
