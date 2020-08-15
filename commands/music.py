@@ -2,7 +2,7 @@ import re
 
 import discord
 import lavalink
-from discord.ext import commands
+from discord.ext import commands, menus
 
 global url_rx 
 url_rx = re.compile(r'https?://(?:www\.)?.+')
@@ -270,7 +270,20 @@ class Music(commands.Cog):
 
         if player.repeat:
             await player.set_repeat(False)
+            await ctx.send("Track Repeat Disabled")
         else:
             await player.set_repeat(True)
+            await ctx.send("Track Repeat Enabled")
+
+    @commands.command(aliases=["s"])
+    async def shuffle(self, ctx):
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+
+        if player.shuffle:
+            await player.set_shuffle(False)
+            await ctx.send("Disabled Queue Shuffle")
+        else:
+            await player.set_shuffle(True)
+            await ctx.send("Enabled Queue Shuffle")
 
 bot.add_cog(Music(bot))

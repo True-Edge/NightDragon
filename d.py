@@ -20,6 +20,7 @@ cre = pre.cursor()
 
 before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
+
 token = os.environ.get("TOKEN")
 guild_id = 413632902480396298
 
@@ -28,7 +29,7 @@ def get_sprefix(bot, message):
     data = before_data.fetchall()
     return data[0][1]
 
-bot = commands.Bot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
+bot = commands.AutoShardedBot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
 for events in os.listdir('events'):
