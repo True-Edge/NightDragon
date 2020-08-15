@@ -264,4 +264,13 @@ class Music(commands.Cog):
         else:
             await ctx.send("Volume Is Out Of Range")
 
+    @commands.command(aliases=["loop"])
+    async def repeat(self, ctx):
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+
+        if player.repeat:
+            await player.set_repeat(False)
+        else:
+            await player.set_repeat(True)
+
 bot.add_cog(Music(bot))
