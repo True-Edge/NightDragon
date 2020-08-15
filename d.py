@@ -3,7 +3,7 @@ import os, sys, sqlite3, json, psutil
 import time, datetime
 import math, random, asyncio, itertools, functools
 
-from discord.ext import commands
+from discord.ext import commands, menus
 from discord.utils import get
 from discord import FFmpegPCMAudio, utils
 from async_timeout import timeout

@@ -194,19 +194,20 @@ class Music(commands.Cog):
     
     @commands.command()
     async def queue(self, ctx):
+        class SongQueue(menus.ListPageSource):
+            def __init__(self, queue):
+                super().__init__(queue, per_page=10)
+
+            async def format_page(self, menu, entries):
+                offset = menu.current_page * self.per_page
+                e = discord.Embed(colour=discord.Color.blurple())
+                e.title = "Track Queue"
+                e.description = '\n'.join(f'{i + 1}) [{v["title"]}](https://youtube.com/watch?v={v["identifier"]})' for i, v in enumerate(entries, start=offset))
+                return e
+                
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
-        queues = player.queue[0:10]
-        fresult = ''
-        i = 0
-
-        for fqueue in queues:
-            i = i + 1
-            fresult = fresult + f"{i}) {fqueue['title']}\n"
-
-        embed = discord.Embed()
-        embed.description = fresult
-
-        await ctx.send(embed=embed)
+        pages = menus.MenuPages(source=SongQueue(player.queue), clear_reactions_after=True)
+        await pages.start(ctx)
 
     @commands.command(name="pause")
     async def pause(self, ctx):
