@@ -270,10 +270,10 @@ class Music(commands.Cog):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if player.repeat:
-            await player.set_repeat(False)
+            player.repeat = False
             await ctx.send("Track Repeat Disabled")
         else:
-            await player.set_repeat(True)
+            player.repeat = True
             await ctx.send("Track Repeat Enabled")
 
     @commands.command(aliases=["s"])
