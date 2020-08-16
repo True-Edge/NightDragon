@@ -281,10 +281,10 @@ class Music(commands.Cog):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if player.shuffle:
-            await player.set_shuffle(False)
+            player.shuffle = False
             await ctx.send("Disabled Queue Shuffle")
         else:
-            await player.set_shuffle(True)
+            player.shuffle = True
             await ctx.send("Enabled Queue Shuffle")
 
 bot.add_cog(Music(bot))
