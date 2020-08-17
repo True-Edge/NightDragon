@@ -21,8 +21,7 @@ cre = pre.cursor()
 before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
 
-token = os.environ.get("TOKEN")
-guild_id = 413632902480396298
+token, guild_id = os.environ.get("TOKEN"), 413632902480396298
 
 def get_sprefix(bot, message):
     before_data = cre.execute("SELECT * FROM sprefix")
