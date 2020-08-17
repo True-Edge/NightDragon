@@ -280,11 +280,8 @@ class Music(commands.Cog):
     async def shuffle(self, ctx):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
-        if player.shuffle:
-            player.shuffle = False
-            await ctx.send("Disabled Queue Shuffle")
-        else:
+        if player.is_playing:
             player.shuffle = True
-            await ctx.send("Enabled Queue Shuffle")
+            await ctx.send("Queue shuffled")
 
 bot.add_cog(Music(bot))
