@@ -7,3 +7,9 @@ ________________________________________________________________________________
 
 Link To Discord:
 [Press Me!](https://discord.gg/GhPyRgx)
+
+________________________________________________________________________________________
+
+#### Using This Bot Requires The Following Modules:
+##### Python 3.5+, discord, discord[voice], praw, psutil, dotenv, lavalink
+##### Lavalink Dependecies [1](https://github.com/Frederikam/Lavalink/releases) [2](https://github.com/Devoxin/Lavalink.py/blob/master/examples/music.py) [3](https://codeberg.org/DMNight6/NightDragon/src/branch/master/Lavalink/application.yml) [4](https://github.com/Rapptz/discord-ext-menus)
