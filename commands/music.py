@@ -204,11 +204,11 @@ class Music(commands.Cog):
                 e.title = "Track Queue"
                 e.description = '\n'.join(f'{i + 1}) [{v["title"]}](https://youtube.com/watch?v={v["identifier"]})' for i, v in enumerate(entries, start=offset))
                 return e
-
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        
         if player.queue == 0:
             await ctx.send("Queue Is Empty!")
         else:
-            player = self.bot.lavalink.player_manager.get(ctx.guild.id)
             pages = menus.MenuPages(source=SongQueue(player.queue), clear_reactions_after=True)
             await pages.start(ctx)
 
