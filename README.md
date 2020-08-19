@@ -1,10 +1,10 @@
-# This is A Bot For A Discord Server. You may use the the code for your own bot :)
+## This is A Bot For A Discord Server. You may use the the code for your own bot :)
 
 ________________________________________________________________________________________
 
-# Special Thanks To:
+## Special Thanks To:
 
-### @Redafex, @Synth And [PD Community](https://discord.gg/5rmZHms) For Helping Me To Fix Some Of The Errors :)
+### @Redafex, @Synth, @sadie And [PD Community](https://discord.gg/5rmZHms) For Helping Me To Fix Some Of The Errors :)
 ### PS: [Join The Community](https://discord.gg/5rmZHms) If You Wish To Learn More About Coding/Programming!
 ________________________________________________________________________________________
 
