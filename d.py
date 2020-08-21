@@ -14,7 +14,7 @@ from sys import platform
 from dotenv import load_dotenv
 
 load_dotenv()
-exec("java -jar ./Lavalink/Lavalink.jar")
+os.system("java -jar ./Lavalink/Lavalink.jar")
 
 pre = sqlite3.connect(database="System/Prefixes.db")
 cre = pre.cursor()
