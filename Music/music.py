@@ -290,4 +290,5 @@ class Music(commands.Cog):
             player.shuffle = True
             await ctx.send("Queue shuffle enabled")
 
-bot.add_cog(Music(bot))
+def setup(bot):
+    bot.add_cog(Music(bot))
