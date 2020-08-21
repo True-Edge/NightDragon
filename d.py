@@ -31,20 +31,6 @@ def get_sprefix(bot, message):
 bot = commands.AutoShardedBot(command_prefix = get_sprefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
-async def change_stat():
-    Status = ["serverprefix", "System Resources."]
-    await bot.wait_until_ready()
-    while not bot.is_closed():
-        for st in Status:
-            await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=3, name=st))
-            await asyncio.sleep(8)
-
-@bot.listen()
-async def on_ready():
-    print(f'----------\nLogged As [{bot.user}]\nUser ID: [{bot.user.id}]\n----------')
-    bot.loop.create_task(change_stat())
-    bot.add_cog("Music.music")
-
 for events in os.listdir('events'):
     if events.endswith('.py'):
         with open(f"events/{events}") as rk1:
