@@ -10,4 +10,4 @@ async def change_stat():
 async def on_ready():
     print(f'----------\nLogged As [{bot.user}]\nUser ID: [{bot.user.id}]\n----------')
     bot.loop.create_task(change_stat())
-    bot.add_cog("Music.music")
+    bot.load_extension("Music.music")
