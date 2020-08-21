@@ -1,8 +1,8 @@
 # Must Ignore Files
 .env
 .vs
-System/Prefixes.db
 ID/ids.db
 cmds/
 Lavalink/Logs/
 Music/__pycache__/
+System/Prefixes.db

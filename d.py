@@ -24,7 +24,7 @@ owner_id = before_owner_id.fetchall()[0]
 token, guild_id = os.environ.get("TOKEN"), 413632902480396298
 
 def get_prefix(bot, message):
-    before_data = cre.execute("SELECT * FROM sprefix")
+    before_data = pre.execute("SELECT * FROM sprefix")
     data = before_data.fetchall()
     return data[0][1]
 
