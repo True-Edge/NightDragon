@@ -9,6 +9,6 @@ while :
 do
   git fetch; git pull
   clear
-  bash -c "exec -a lavalink java -jar ./Lavalink/Lavalink.jar" & bash -c "exec -a pybot python3 d.py"
+  bash -c "exec -a pybot python3 d.py"
   bash stop.sh
 done
