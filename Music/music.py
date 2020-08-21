@@ -139,7 +139,8 @@ class Music(commands.Cog):
 
         if not player.is_playing:
             await player.play()
-
+            await player.set_volume(100)
+            
     @commands.command(aliases=["find"])
     async def search(self, ctx, *, query: str):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
@@ -173,6 +174,7 @@ class Music(commands.Cog):
 
         if not player.is_playing:
             await player.play()
+            await player.set_volume(100)
 
     @commands.command(aliases=['dc'])
     async def disconnect(self, ctx):
