@@ -1,5 +1,5 @@
 import discord, praw, lavalink, re
-import os, sys, sqlite3, json, psutil
+import os, sys, sqlite3, json, psutil, subprocess
 import time, datetime
 import math, random, asyncio, itertools, functools
 
@@ -14,6 +14,7 @@ from sys import platform
 from dotenv import load_dotenv
 
 load_dotenv()
+subprocess.run(["java", "-jar", "./Lavalink/Lavalink.jar"], shell=True)
 
 pre = sqlite3.connect(database="System/Prefixes.db")
 cre = pre.cursor()
