@@ -21,14 +21,14 @@ cre = pre.cursor()
 before_owner_id = cre.execute("SELECT * FROM pri")
 owner_id = before_owner_id.fetchall()[0]
 
-token, guild_id = os.environ.get("TOKEN"), 413632902480396298
+token = os.environ.get("TOKEN")
+guild_id = 413632902480396298
 
-def get_prefix(bot, message):
-    before_data = cre.execute("SELECT * FROM sprefix")
-    data = cre.fetchall()
-    return data[0][1]
+def get_prefix(bot, message: discord.Message):
+    prefix = cre.execute("SELECT prefix FROM sprefix WHERE guildid = ?",(message.guild.id,)).fetchone()
+    return prefix[0]
 
-bot = commands.AutoShardedBot(command_prefix = get_prefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
+bot = commands.AutoShardedBot(command_prefix=get_prefix, case_insensitive=True, status=discord.Status.idle, activity=discord.Activity(type=2, name="System Mainframe"))
 bot.remove_command('help')
 
 for events in os.listdir('events'):
@@ -40,4 +40,5 @@ for command in os.listdir('commands'):
     if command.endswith('.py'):
         with open(f'commands/{command}') as rk:
             exec(rk.read())
+
 bot.run(token)

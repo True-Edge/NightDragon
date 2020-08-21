@@ -1,7 +1,6 @@
 @bot.listen()
 async def on_guild_join(guild):
-    prefix = "n$"
-    cre.execute("INSERT INTO sprefix (guildid, prefix) VALUES (?, ?)",(guild.id, prefix))
+    cre.execute("INSERT INTO sprefix (guildid) VALUES (?)",(guild.id))
     pre.commit()
 
 @bot.listen()
