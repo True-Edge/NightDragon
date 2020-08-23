@@ -1,0 +1,7 @@
+discord
+discord[voice]
+lavalink
+praw
+psutil
+python-dotenv
+git+https://github.com/Rapptz/discord-ext-menus
