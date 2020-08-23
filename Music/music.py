@@ -80,7 +80,7 @@ class Music(commands.Cog):
         if isinstance(event, lavalink.events.QueueEndEvent):
             # When this track_hook receives a "QueueEndEvent" from lavalink.py
             # it indicates that there are no tracks left in the player's queue.
-            guild_id = int(event.player.guild_id)
+            # guild_id = int(event.player.guild_id) # Deactivated as it is unused at the moment.
             pass # This line was suppost to be a auto diconnect, passed for certain issue.
 
     async def connect_to(self, guild_id: int, channel_id: str):
