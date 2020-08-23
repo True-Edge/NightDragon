@@ -2,9 +2,9 @@
 
 ________________________________________________________________________________________
 
-## Special Thanks To:
+### Special Thanks To:
 
-### @Redafex, @Synth, @sadie And [PD Community](https://discord.gg/5rmZHms) For Helping Me To Fix Some Of The Errors :)
+#### @Redafex, @Synth, @sadie And [PD Community](https://discord.gg/5rmZHms) For Helping Me To Fix Some Of The Errors :)
 ### PS: [Join The Community](https://discord.gg/5rmZHms) If You Wish To Learn More About Coding/Programming!
 ________________________________________________________________________________________
 
